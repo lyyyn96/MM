@@ -1,21 +1,17 @@
 package com.proto.mm.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.proto.mm.repository.MemberRepository;
-
-import com.proto.mm.model.Member;
+import com.proto.mm.service.MemberService;
 
 @Controller
 public class MemberController {
 
 	@Autowired
-	MemberRepository memberRepository;
+	MemberService memberService;
 
 	
 	@GetMapping("test")
@@ -26,11 +22,7 @@ public class MemberController {
 	
 	@GetMapping("member/list")
 	public String member(Model model) {
-		List<Member> members = memberRepository.findAll();
-		model.addAttribute("members", members);
-		for(Member member : members) {
-			System.out.println(member.toString());
-		}
+		memberService.showList(model);
 		return "member/list";
 	}
 }

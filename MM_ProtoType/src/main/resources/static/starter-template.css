@@ -1,7 +1,24 @@
 body {
     padding-top: 5rem;
 }
-.starter-template {
-    padding: 3rem 1.5rem;
+
+#result_section{
+    width: auto;
     text-align: center;
+    height: 80vh;
+    position: relative;
+}
+
+html{
+    height: 100vh;
+}
+
+article{
+    height: 100vh;
+}
+
+div {
+    overflow:hidden;
+    height:auto;
+    display: block;
 }
