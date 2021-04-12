@@ -8,6 +8,7 @@ class MMProtoTypeApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }

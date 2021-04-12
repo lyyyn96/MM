@@ -1,4 +1,4 @@
-package com.proto.mm.Controller;
+package com.proto.mm.controller;
 
 import java.util.List;
 
@@ -7,35 +7,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.proto.mm.DTO.MemberDTO;
-import com.proto.mm.Service.MemberService;
+import com.proto.mm.repository.MemberRepository;
 
+import com.proto.mm.model.Member;
 
 @Controller
-public class MainController{
-	@Autowired
-	MemberService memberService;
-	
-	@GetMapping("")
-	public String mainView() {
-		return "index";
-	}
+public class MemberController {
 
+	@Autowired
+	MemberRepository memberRepository;
+
+	
 	@GetMapping("test")
 	public String getMessage(Model model) {
 		model.addAttribute("testSTR","타임리프 연습");
 		return "testView";
 	}
 	
-	@GetMapping("memberList")
+	@GetMapping("member/list")
 	public String member(Model model) {
-		List<MemberDTO> memberList = memberService.memberView();
-		model.addAttribute("memberList", memberList);
-		for(MemberDTO member : memberList) {
+		List<Member> members = memberRepository.findAll();
+		model.addAttribute("members", members);
+		for(Member member : members) {
 			System.out.println(member.toString());
 		}
-		
-		return "memberList";
+		return "member/list";
 	}
-	
 }
