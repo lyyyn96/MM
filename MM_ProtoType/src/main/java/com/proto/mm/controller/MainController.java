@@ -2,6 +2,7 @@ package com.proto.mm.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 
@@ -13,5 +14,12 @@ public class MainController{
 	public String index() {
 		return "index";
 	}
+	
+	@GetMapping("home")
+	public String home() {
+		return "home";
+	}
+	
 
+	
 }
