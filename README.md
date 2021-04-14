@@ -14,11 +14,11 @@ ___
 
 #### 2021 - 04 - 19 - MON ~ 2021 - 05 - 12 - WED 
 
-- **04 - 19 - MON~ 05 - 24 - SAT **:  **쇼핑몰 기능 구현**
-- **04 - 26 - MON~ 05 - 11 - SAT **:  **쇼핑몰 기능 구현 + 챗봇 학습 및 API 연동**
-- **05 - 03 - MON~ 05 - 11 - SAT **:  **쇼핑몰 기능 구현 + 코드 리팩토링**
-- **05 - 10 - MON~ 05 - 11 - TUE**: **결과 보고서 작성 및 시연 영상 제작**
-- **05 - 12 - WED** : **경진 대회 및 수료**
+- **04 - 19 - MON~ 05 - 24 - SAT  :  쇼핑몰 기능 구현**
+- **04 - 26 - MON~ 05 - 11 - SAT :  쇼핑몰 기능 구현 + 챗봇 학습 및 API 연동**
+- **05 - 03 - MON~ 05 - 11 - SAT :  쇼핑몰 기능 구현 + 코드 리팩토링**
+- **05 - 10 - MON~ 05 - 11 - TUE : 결과 보고서 작성 및 시연 영상 제작**
+- **05 - 12 - WED : 경진 대회 및 수료**
 
 <br/>
 
@@ -40,8 +40,6 @@ ___
     📂 BootStrap 5<br/>
     📂 <a href="https://github.com/ktae23/TIL/tree/master/python">Python Crawler</a><br/>
 </details>
-
-
 <details>
     <summary>📁 Deployment</summary>
     📂 AWS EC2 Ubuntu <br/>
