@@ -28,41 +28,32 @@ ___
 
 #### 📌기술 스택
 
-**📁 개발 도구**
+<details>
+    <summary>📁 개발 도구</summary>
+    📂 STS4<br/>
+    📂 Spring Boot 2.4.4**<br/>
+    📂 JDK 11<br/>
+    📂 Maven<br/>
+    📂 Spring data JPA<br/>
+    📂 Lombok<br/>
+    📂 Thymeleaf<br/>
+    📂 BootStrap 5<br/>
+    📂 <a href="https://github.com/ktae23/TIL/tree/master/python">Python Crawler</a><br/>
+</details>
 
-​	**📂 STS4**
+<details>
+    <summary>📁 Deployment</summary>
+    📂 AWS EC2 Ubuntu <br/>
+	📂 Docker
+</details>
 
-​		**📂 Spring Boot 2.4.4**
-
-​		**📂 JDK 11**
-
-​		**📂 Maven**
-
-​		**📂 Spring data JPA**
-
-​		**📂 Lombok**
-
-​		**📂 Thymeleaf**
-
-​		**📂 BootStrap 5**
-
-​		**📂 [Python Crawler](https://github.com/ktae23/TIL/tree/master/python)**
-
-**📁 Deployment** 
-
-​	📂 **AWS EC2 Ubuntu** 
-
-​	📂 **Docker**
-
-**📁 Collaboration**
-
-​	📂 <a href="https://github.com/moviementorteam/MM">Git-Hub-Organizations</a>
-
-​	📂 <a href="https://github.com/ktae23/TIL/blob/master/Git/MM_Git-Flow.png">Git-Flow</a>
-
-​	📂 **Slack**
-
-​	📂 **Notion**
+<details>
+    <summary>📁 Collaboration</summary>
+📂 <a href="https://github.com/moviementorteam/MM">Git-Hub-Organizations</a><br/>
+📂 <a href="https://github.com/ktae23/TIL/blob/master/Git/MM_Git-Flow.png">Git-Flow</a><br/>
+📂 Slack<br/>
+📂 Notion<br/>
+</details>
 
 <br/>
 
