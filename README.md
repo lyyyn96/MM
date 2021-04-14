@@ -1,13 +1,7 @@
-# test
-test
+K - digital training X Multi-campus
 
-테스트
+___
 
-테스트
 
-테스트
 
-테스트2
-
-테스트3
-
+Team project repository
