@@ -31,7 +31,7 @@ ___
 <details>
     <summary>📁 개발 도구</summary>
     📂 STS4<br/>
-    📂 Spring Boot 2.4.4**<br/>
+    📂 Spring Boot 2.4.4<br/>
     📂 JDK 11<br/>
     📂 Maven<br/>
     📂 Spring data JPA<br/>
@@ -40,6 +40,7 @@ ___
     📂 BootStrap 5<br/>
     📂 <a href="https://github.com/ktae23/TIL/tree/master/python">Python Crawler</a><br/>
 </details>
+
 
 <details>
     <summary>📁 Deployment</summary>
