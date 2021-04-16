@@ -14,11 +14,11 @@ ___
 
 #### 2021 - 04 - 19 - MON ~ 2021 - 05 - 12 - WED 
 
-- **04 - 19 - MON~ 05 - 24 - SAT **:  **쇼핑몰 기능 구현**
-- **04 - 26 - MON~ 05 - 11 - SAT **:  **쇼핑몰 기능 구현 + 챗봇 학습 및 API 연동**
-- **05 - 03 - MON~ 05 - 11 - SAT **:  **쇼핑몰 기능 구현 + 코드 리팩토링**
-- **05 - 10 - MON~ 05 - 11 - TUE**: **결과 보고서 작성 및 시연 영상 제작**
-- **05 - 12 - WED** : **경진 대회 및 수료**
+- **04 - 19 - MON~ 05 - 24 - SAT : 쇼핑몰 기능 구현**
+- **04 - 26 - MON~ 05 - 01 - SAT : 쇼핑몰 기능 구현 + 챗봇 학습 및 API 연동**
+- **05 - 03 - MON~ 05 - 08 - SAT : 코드 리팩토링 + 배포**
+- **05 - 10 - MON~ 05 - 11 - TUE : 결과 보고서 작성 및 시연 영상 제작**
+- **05 - 12 - WED : 경진 대회 및 수료**
 
 <br/>
 
@@ -28,41 +28,31 @@ ___
 
 #### 📌기술 스택
 
-**📁 개발 도구**
+<details>
+    <summary>📁 개발 도구</summary>
+    📂 STS4<br/>
+    📂 Spring Boot 2.4.4<br/>
+    📂 JDK 11<br/>
+    📂 Maven<br/>
+    📂 Spring data JPA<br/>
+    📂 Lombok<br/>
+    📂 Thymeleaf<br/>
+    📂 BootStrap 5<br/>
+    📂 <a href="https://github.com/ktae23/TIL/tree/master/python">Python Crawler</a><br/>
+</details>
+<details>
+    <summary>📁 Deployment</summary>
+    📂 AWS EC2 Ubuntu <br/>
+	📂 Docker
+</details>
 
-​	**📂 STS4**
-
-​		**📂 Spring Boot 2.4.4**
-
-​		**📂 JDK 11**
-
-​		**📂 Maven**
-
-​		**📂 Spring data JPA**
-
-​		**📂 Lombok**
-
-​		**📂 Thymeleaf**
-
-​		**📂 BootStrap 5**
-
-​		**📂 [Python Crawler](https://github.com/ktae23/TIL/tree/master/python)**
-
-**📁 Deployment** 
-
-​	📂 **AWS EC2 Ubuntu** 
-
-​	📂 **Docker**
-
-**📁 Collaboration**
-
-​	📂 <a href="https://github.com/moviementorteam/MM">Git-Hub-Organizations</a>
-
-​	📂 <a href="https://github.com/ktae23/TIL/blob/master/Git/MM_Git-Flow.png">Git-Flow</a>
-
-​	📂 **Slack**
-
-​	📂 **Notion**
+<details>
+    <summary>📁 Collaboration</summary>
+📂 <a href="https://github.com/moviementorteam/MM">Git-Hub-Organizations</a><br/>
+📂 <a href="https://github.com/ktae23/TIL/blob/master/Git/MM_Git-Flow.png">Git-Flow</a><br/>
+📂 Slack<br/>
+📂 Notion<br/>
+</details>
 
 <br/>
 
