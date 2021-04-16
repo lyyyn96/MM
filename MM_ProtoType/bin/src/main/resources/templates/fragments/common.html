@@ -61,40 +61,67 @@
     </nav>
 
  
-                    <div id="chat_section" th:fragment="chat_section">
+    <div id="chat_section" th:fragment="chat_section">
                     <div class="chatbody">
                     <div class="panel panel-primary">
                     <div class="panel-heading top-bar">
                         <div class="col-md-8 col-xs-8">
-                            <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - Miguel</h3>
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Movie Mentor</h3>
                         </div>
                     </div>
                     <div class="panel-body msg_container_base">
                         <div class="row msg_container base_sent">
                             <div class="col-md-10 col-xs-10">
                                 <div class="messages msg_sent">
-                                    <p>that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store</p>
-                                    <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    <p>대화 시작</p>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-xs-2 avatar">
+                            <div class="col-md-2 col-xs-2 avatar" style="max-height:70%;">
                                 <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
                             </div>
                         </div>
                         <div class="row msg_container base_receive">
-                            <div class="col-md-2 col-xs-2 avatar">
+                            <div class="col-md-2 col-xs-2 avatar"  style="max-height:70%;">
                                 <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
                             </div>
                             <div class="col-md-10 col-xs-10">
                                 <div class="messages msg_receive">
-                                    <p>that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store</p>
-                                    <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    <p>어떤 영화가 궁금하시나요?</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                     <!-- responses에  role 필드를 넣어서 user일 경우와 MM일 경우로 나누어 입력 -->
+                    <!-- <div class="panel-body msg_container_base">
+	                    <div class="User_Response" th:if="${responses.role} == user" th:each="response : ${responses}">
+	                        <div class="row msg_container base_sent">
+	                            <div class="col-md-10 col-xs-10">
+	                                <div class="messages msg_sent">
+	                                    <p th:text="${response}>대화 시작</p>
+	                                </div>
+	                            </div>
+	                            <div class="col-md-2 col-xs-2 avatar" style="max-height:auto;">
+	                                <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+	                            </div>
+	                        </div>
+	                    </div>
+                        <div class="MM_Response"  th:if="${responses.role} == MM" th:each="response : ${responses}">
+	                        <div class="row msg_container base_receive">
+	                            <div class="col-md-2 col-xs-2 avatar"  style="max-height:auto;">
+	                                <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+	                            </div>
+	                            <div class="col-md-10 col-xs-10">
+	                                <div class="messages msg_receive">
+	                                    <p>어떤 영화가 궁금하시나요?</p>
+                                </div>
+	                         </div>
+	                        </div>
+                        </div>
+                    </div> -->
+                   
+                    
+                    
                     <div class="panel-footer">
                         <div class="input-group">
                             <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
