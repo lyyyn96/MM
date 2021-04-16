@@ -24,13 +24,6 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 
-	
-	@GetMapping("test")
-	public String getMessage(Model model) {
-		model.addAttribute("testSTR","타임리프 연습");
-		return "testView";
-	}
-	
 	@GetMapping("member/list")
 	public String member(Model model) {
 		memberService.showList(model);
@@ -59,23 +52,18 @@ public class MemberController {
 
 			HttpSession session=request.getSession();
 			session.setMaxInactiveInterval(3600);
-			System.out.println(session.getMaxInactiveInterval());
 			session.setAttribute("member", member);
-			System.out.println("테스트1");
 			json.put("name", name);
-			
-			System.out.println("테스트2");
+
 		}else {
 			json.put("msg", "로그인 실패");
 		}
-
 		
 	}catch(Exception e) {
 		json.put("msg", e.getMessage());
 	}	
+	System.out.println(json.toString());
 	return json.toString();
 	}		
-	
-
 
 }

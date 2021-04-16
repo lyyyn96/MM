@@ -15,6 +15,7 @@ public class MemberService {
 	private MemberRepository memberRepository;
 	
 	public Model showList(Model model) {
+		System.out.println("회원목록 서비스 호출");
 		List<Member> members = memberRepository.findAll();
 		model.addAttribute("members", members);
 		for(Member member : members) {
@@ -24,6 +25,7 @@ public class MemberService {
 	}
 	
 	public Member signIn(String id, String pw) {
+		System.out.println("로그인 서비스 호출");
 		return memberRepository.findByIdAndPw(id, pw);
 	}
 	
