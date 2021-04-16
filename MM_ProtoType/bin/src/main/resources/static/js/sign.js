@@ -2,7 +2,7 @@
 // 로그인
 
 $(document).ready(function(){
-	$("#loginBtn").click(function(){ // 로그인
+	$("#signInBtn").click(function(){ // 로그인
 		
 		var id=$("#floatingInput").val();
 		var pw=$("#floatingPassword").val();
