@@ -9,6 +9,5 @@ import com.proto.mm.model.Member;
 
 public interface MemberRepository extends JpaRepository<Member, BigDecimal>{
 	
-	public Member findByIdAndPw(String id, String pw);
-	
+	public Member findByIdAndPw(String id, String pw);	
 }
