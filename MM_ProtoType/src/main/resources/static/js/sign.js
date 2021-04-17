@@ -19,6 +19,6 @@ $(document).ready(function(){// 로그인
 					alert(obj.msg);
 				}	
 			});
+			alert("b");
 	});
 });
-
