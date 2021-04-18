@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.proto.mm.model.Member;
+import com.proto.mm.service.MainService;
 import com.proto.mm.service.MemberService;
 
 
@@ -24,10 +25,16 @@ public class MainController{
 	
 	@Autowired
 	MemberService memberService;
-
+	
+	@Autowired
+	MainService mainService;
 	
 	@GetMapping
-	public String index() {
+	public String index(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+		
 		return "index";
 	}
 	
@@ -76,7 +83,9 @@ public class MainController{
 	}		
 		
 	// Sign out
-	@PostMapping("signOut")
+	@RequestMapping(value = "signOut", 
+			method= {RequestMethod.POST},
+			produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String signOut(HttpServletRequest request,
 			HttpServletResponse response){
@@ -84,7 +93,7 @@ public class MainController{
 			//기존 세션을 가져오고 없더라도 생성하지 않는다.
 			HttpSession session=request.getSession(false);
 			session.invalidate();
-			return "";
+			return "이용해주셔서 감사합니다.";
 	
 	}
 	

@@ -38,15 +38,18 @@ $(document).ready(function(){
 
 
 // 로그아웃
-$(document).on("click", "#logoutBtn", function(event) {  
-	$.post("#signOutBtn",
+$(document).ready(function(){ 
+	$("#signOutBtn").click(function(){
+	$.post("signOut",
 		{
 		   
 		},
-		function(data, status){		  	
-			$.removeCookie("logined");
-			location.href = "index";		
-		}		   
-	);
+		function(data){		  
+			alert(data);	
+			$.removeCookie("logined", {path:'/'});
+			location.href = "/";	
+			}		   
+		);
+	});
 });
 

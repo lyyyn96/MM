@@ -3,6 +3,7 @@ package com.proto.mm.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class MemberService {
 
 	@Autowired
 	private MemberRepository memberRepository;
+	
 	
 	public Model showList(Model model) {
 		System.out.println("회원목록 서비스 호출");
