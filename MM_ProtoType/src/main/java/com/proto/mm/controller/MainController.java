@@ -39,8 +39,11 @@ public class MainController{
 	}
 	
 	@GetMapping("home")
-	public String home() {
-		 
+	public String home(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+	 
 		return "home";
 	}
 	
@@ -76,7 +79,7 @@ public class MainController{
 			
 		}catch(Exception e) {
 			e.getStackTrace();
-			json.put("msg", e.getMessage());
+			json.put("msg", "로그인 실패");
 		}	
 	System.out.println(json.toString());
 	return json.toString();
