@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,6 +33,7 @@ public class MainController{
 	
 	@GetMapping("home")
 	public String home() {
+		 
 		return "home";
 	}
 	
@@ -73,9 +76,7 @@ public class MainController{
 	}		
 		
 	// Sign out
-	@RequestMapping(value = "signOut", 
-			method= {RequestMethod.POST},
-			produces = "application/text; charset=utf8")			
+	@PostMapping("signOut")
 	@ResponseBody
 	public String signOut(HttpServletRequest request,
 			HttpServletResponse response){

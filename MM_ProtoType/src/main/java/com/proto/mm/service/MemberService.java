@@ -1,6 +1,10 @@
 package com.proto.mm.service;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -30,6 +34,8 @@ public class MemberService {
 		System.out.println("로그인 서비스 호출");
 		return memberRepository.findByIdAndPw(id, pw);
 	}
+	
+
 	
 	
 }
