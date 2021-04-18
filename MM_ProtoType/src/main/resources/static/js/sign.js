@@ -16,7 +16,7 @@ $(document).ready(function(){
 				if(obj.name){
 				 	alert(obj.name+ "님 환영합니다.");
 				 	location.href = "home";
-					$.cookie("logined",obj.name + "님 환영합니다.");	
+					$.cookie("logined",obj.name + "님 환영합니다.", {path:'/'});	
 				}else{
 					alert(obj.msg);
 				}	
@@ -26,17 +26,30 @@ $(document).ready(function(){
 });
 
 
+//로그인 쿠키 처리
+$(document).ready(function(){ 
+	$(function(){
+		var login=$.cookie('logined');
+		
+	$("#msgDiv").html(login);
+	});
+
+});
+
 
 // 로그아웃
-$(document).on("click", "#logoutBtn", function(event) {  
-	$.post("#signOutBtn",
+$(document).ready(function(){ 
+	$("#signOutBtn").click(function(){
+	$.post("signOut",
 		{
 		   
 		},
-		function(data, status){		  	
-			$.removeCookie("logined");
-			location.href = "index";		
-		}		   
-	);
+		function(data){		  
+			alert(data);	
+			$.removeCookie("logined", {path:'/'});
+			location.href = "/";	
+			}		   
+		);
+	});
 });
 

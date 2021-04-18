@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<main class="form-signin" th:fragment="nonLogin">
+	  <form>
+	    <div class="form-floating">
+	      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+	      <label for="floatingInput">ID</label>
+	    </div>
+	
+	    <div class="form-floating">
+	      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+	      <label for="floatingPassword">Password</label>
+	    </div>
+		
+	    <button class="w-75 btn btn-lg btn-primary" id="signInBtn">Sign in</button>
+	    <br>
+	    <button class="w-50 btn btn-lg btn-primary-up" id="signUpBtn">Sign up</button>
+	  </form> 
+	
+	  <footer>
+	    <p class="mt-5 mb-3 text-muted">&copy; Movie Mentor 2021</p>
+	  </footer>
+	</main>
+	
+	<main class="form-signin" th:fragment="Logined">
+		<div>
+			<a href="home">홈으로 가기</a>	
+		</div>
+	
+	  <footer>
+	    <p class="mt-5 mb-3 text-muted">&copy; Movie Mentor 2021</p>
+	  </footer>
+	</main>
+</body>
+</html>
