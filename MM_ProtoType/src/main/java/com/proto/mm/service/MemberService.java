@@ -2,9 +2,6 @@ package com.proto.mm.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +32,16 @@ public class MemberService {
 	public Member signIn(String id, String pw) {
 		System.out.println("로그인 서비스 호출");
 		return memberRepository.findByIdAndPw(id, pw);
+	}
+
+
+	public Member idCheck(String id) {
+		return memberRepository.findById(id);
+	}
+
+
+	public void memberInsert(Member m) {
+		memberRepository.save(m);
 	}
 	
 
