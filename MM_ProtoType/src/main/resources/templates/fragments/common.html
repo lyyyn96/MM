@@ -57,6 +57,9 @@
 	                <li class="nav-item" th:classappend="${menu} == 'member'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/memberList}">회원 목록 <span class="sr-only" th:if="${menu} == 'member'">(current)</span></a>
 	                </li>
+	                <li class="nav-item" th:classappend="${menu} == 'memberInfo'? 'active'">
+	                    <a class="nav-link" href="#" th:href="@{/memberInfo}">회원 정보 <span class="sr-only" th:if="${menu} == 'memberInfo'">(current)</span></a>
+	                </li>
 	            </ul>
 	
 	        </div>
@@ -72,7 +75,7 @@
 	        <ul class="navbar-nav mr-auto">
 	            <li class="nav-item" th:if="${logined}">
             		<!-- 추후 회원 정보 링크로 변경 -->
-                    <a class="nav-link" id="msgDiv" href="memberList"></a>
+                    <a class="nav-link" id="msgDiv" href="memberInfo"></a>
 	            </li>
 	            <li class="nav-item" th:if="${logined} == null">
                     <a class="nav-link" id="msgDiv" href="/">로그인 해주세요 <span class="sr-only">(current)</span></a>
