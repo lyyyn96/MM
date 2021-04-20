@@ -64,7 +64,7 @@ public class MemberController {
 			System.out.println("테스트1");
 			json.put("name", name);
 			
-			System.out.println("테스트2");
+			System.out.println(name);
 		}else {
 			json.put("msg", "로그인 실패");
 		}

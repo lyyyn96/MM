@@ -34,18 +34,15 @@ $(document).ready(function(){
 				    pw:pw
 				  },
 				  function(data, status){
-				  var obj=JSON.parse(data);			  
-			  	if(obj.name){
-				 	alert(obj.name+ "님 환영합니다.");
-				 	location.href = "home";
-					$.cookie("logined",obj.name + "님 환영합니다.");	
-				
-					
-				  }else{
-					alert(obj.msg);
-					
+					  var obj=JSON.parse(data);		
+					  if(obj.name){
+						  alert(obj.name+ "님 환영합니다.");
+						  location.href = "home";
+						  $.cookie("logined",obj.name + "님 환영합니다.");	
+					}else{
+						 alert(obj.msg);
 				}	
 			});
-		}
+		}alert();
 	});
 });
