@@ -39,7 +39,10 @@ public class Member{
 	private String pw;
 	@NonNull
 	private String name;
+<<<<<<< HEAD
 	@NonNull
+=======
+>>>>>>> eb11cf169cf45e73034fbd103a4c4b2386dfba48
 	private String preference;
 	
 

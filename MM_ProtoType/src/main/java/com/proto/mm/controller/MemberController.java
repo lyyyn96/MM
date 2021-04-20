@@ -1,3 +1,4 @@
+  
 package com.proto.mm.controller;
 
 
@@ -8,6 +9,7 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,6 +77,24 @@ public class MemberController {
 		return "memberList";
 	}
 	
-	
+	@GetMapping("memberInfo")
+	public String memberInfo(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+		HttpSession session=request.getSession();
+		memberService.showMemberInfo(model,session);
+		// orderService에서 정보 가져오기
+		
+		return "memberInfo";
+	}
 
+	@GetMapping("memberUpdate")
+	public String memberUpdate(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+		
+		return "memberUpdate";
+	}
 }

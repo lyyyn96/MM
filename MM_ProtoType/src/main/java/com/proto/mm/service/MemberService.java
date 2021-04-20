@@ -28,6 +28,14 @@ public class MemberService {
 		return model;
 	}
 
+	public Model showMemberInfo(Model model, HttpSession session) {
+		System.out.println("회원정보조회 서비스 호출");
+		// 세션에서 사용자 정보를 꺼내 Member에 저장 후 model에 값 저장 후 반환
+		Member member = (Member)session.getAttribute("member");
+		model.addAttribute("member", member);
+		System.out.println(member.toString());
+		return model;
+	}
 	
 	public Member signIn(String id, String pw) {
 		System.out.println("로그인 서비스 호출");
