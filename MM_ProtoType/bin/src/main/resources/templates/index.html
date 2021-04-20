@@ -1,61 +1,57 @@
 <!doctype html>
 <html>
-  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.82.0">
-    <title>Sigin in</title>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-    <script type="text/javascript" src="js/sign.js" charset="UTF-8"></script>
     <!-- Bootstrap core CSS -->
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
- <!-- Custom styles for this template -->
+
+    <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 
-    
-   
+    <!-- Bootstrap core JavaScript -->
+	<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous">
+    </script>
+    <!-- sign CSS & Script-->
+    <script type="text/javascript" src="js/sign.js" charset="UTF-8"></script>
+
+
+    <title>Sign in first</title>
   </head>
   <body class="text-center">
   
-<div class="index_content">
-    <img class="mb-4" src="imgs/mm_favicon.png" alt="" width="90" height="90">
- 	<p id="index_head_text">Movie Mentor</p>
- 	<pre id="index_text">
+	<div class="index_content">
+    	<img class="mb-4" src="imgs/mm_favicon.png" alt="" width="90" height="90">
+		<p id="index_head_text">Movie Mentor</p>
+			<pre id="index_text">
 당신의 취향을 길러주는 멘토
 
 Movie Mentor는 아직 취향이 확립되지 않았거나
 어떤 영화를 보면 좋을지 고민하는 당신에게
 길잡이가 되어드립니다.
- 	</pre>
-</div>
-
-    
-<main class="form-signin">
- <form>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">ID</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+			</pre>
+	</div>
 
 	
-    <button class="w-75 btn btn-lg btn-primary" id="signInBtn">Sign in</button>
-    <br>
-    <button class="w-50 btn btn-lg btn-primary-up" id="signUpBtn">Sign up</button>
-    
-    
-  </form>
-<footer><p class="mt-5 mb-3 text-muted">&copy; Movie Mentor 2021</p></footer>
-</main>
+	<main class="form-signin" th:replace="${logined} ? ~{fragments/sign :: Logined} : ~{fragments/sign :: nonLogin}">
+	    <p >로그인 상태면 '홈으로 가기' 링크가, 아니면 로그인 창이 나옴</p>
+	</main>
 
+   
 </body>
 
 </html>
