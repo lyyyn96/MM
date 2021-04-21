@@ -51,10 +51,6 @@ $(document).ready(function(){
 			}		   
 		);
 	});
-<<<<<<< HEAD
-=======
-
->>>>>>> 2bff5d29b824c63a4f49359824825d0c3d5468d0
 });
 
 
@@ -189,8 +185,5 @@ $(document).ready(function(){
 
 
 	});
-<<<<<<< HEAD
-=======
 
->>>>>>> 2bff5d29b824c63a4f49359824825d0c3d5468d0
 });
