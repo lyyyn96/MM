@@ -62,6 +62,9 @@
 	                <li class="nav-item" th:classappend="${menu} == 'memberInfo'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/memberInfo}">회원 정보 <span class="sr-only" th:if="${menu} == 'memberInfo'">(current)</span></a>
 	                </li>
+	                 <li class="nav-item" th:classappend="${menu} == 'cart'? 'active'">
+	                    <a class="nav-link" href="#" th:href="@{/cart}">장바구니 <span class="sr-only" th:if="${menu} == 'cart'">(current)</span></a>
+	                </li>
 	            </ul>
 	
 	        </div>

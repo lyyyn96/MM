@@ -1,3 +1,9 @@
+<head>
+<!-- <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<style type="text/css">
+
+</style>
+</head>
 <body>
     <section>
         <article>
@@ -46,16 +52,30 @@
 			    		</div>
 			        </div>
 			    </div>
-			
-
-			
+		
 			</div>
 			
 			
 			<div id="result_section" th:fragment="result_section">
-			    <h1>Movie Mentor</h1>
+			    <!-- <h1>Movie Mentor</h1>
 			    <p class="lead">영화 취향의 길라잡이<br> 
-			        무비멘토 화이팅</p>
+			        무비멘토 화이팅</p> -->
+    			<div id="movie_main_title"> User님의 취향저격 영화</div>
+    			
+				<span th:each="movie : ${movies}">
+			          <div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <p th:text="${movie.movieTitle}"></p>
+			                </h4>
+			                <p th:text="${movie.moviePrice}"></p>
+			                <button>자세히 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;<button>담기</button>
+			                <br>
+			              </div>
+			            </div>
+			            </div>
+				</span>
 			</div>
 			
 		</article>
