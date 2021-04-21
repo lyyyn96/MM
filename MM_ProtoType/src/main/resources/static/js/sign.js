@@ -51,8 +51,10 @@ $(document).ready(function(){
 			}		   
 		);
 	});
-<<<<<<< HEAD
+
 });
+
+// 회원가입
 $(document).ready(function(){
 	$("#signUpBtn").click(function(){ 
 		$.post("signUp",
@@ -124,6 +126,5 @@ $(document).ready(function(){
 
 
 	});
-=======
->>>>>>> eb11cf169cf45e73034fbd103a4c4b2386dfba48
+
 });

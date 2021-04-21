@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 
 @Entity // 데이터베이스 연동 클래스임을 명시
@@ -39,10 +38,7 @@ public class Member{
 	private String pw;
 	@NonNull
 	private String name;
-<<<<<<< HEAD
 	@NonNull
-=======
->>>>>>> eb11cf169cf45e73034fbd103a4c4b2386dfba48
 	private String preference;
 	
 
