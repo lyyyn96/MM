@@ -51,7 +51,7 @@ $(document).ready(function(){
 			}		   
 		);
 	});
-<<<<<<< HEAD
+
 });
 $(document).ready(function(){
 	$("#signUpBtn").click(function(){ 
@@ -124,6 +124,5 @@ $(document).ready(function(){
 
 
 	});
-=======
->>>>>>> eb11cf169cf45e73034fbd103a4c4b2386dfba48
+
 });
