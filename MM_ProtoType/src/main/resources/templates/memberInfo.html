@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/common :: head('회원 정보')">
+    <title>회원 정보</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('memberInfo')">
+</nav>
+<div class="container">
+	<h2>회원 정보</h2>
+	<table class="table table-striped">
+	<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">NAME</th>
+				<th scope="col">PREFERENCES</th>
+			</tr>
+	</thead>
+	<thead>
+			<tr>
+				<td><span th:text="${member.id}"></span></td>
+				<td><span th:text="${member.name}"></span></td>
+				<td><span th:text="${member.preference}"></span></td>
+			</tr>
+		
+	</thead>
+	</table>
+	 
+	<br><br>
+	<h2>구매 이력</h2>
+	<table class="table table-striped">
+	<thead>
+			<tr>
+				<th scope="col">MOVIE_CODE</th>
+				<th scope="col">MOVIE_TITLE</th>
+				<th scope="col">MOVIE_PRICE</th>
+			</tr>
+	</thead>
+	
+	<!-- 구매 이력 출력-->	
+	<thead>
+	
+			<tr th:each="order : ${orders}">
+				<td><span th:text="${order.movie_code}"></span></td>
+				<td><span th:text="${order.movie_title}"></span></td>
+				<td><span th:text="${order.price}"></span></td>
+			</tr>
+	
+	</thead>
+	</table>
+	
+	<br><br>
+	<button class="btn btn-secondary my-2 my-sm-0" id="UpdateBtn" onclick="window.open('memberUpdate', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">회원 정보 수정</button>
+	<button class="btn btn-secondary my-2 my-sm-0" id="DeleteBtn" >회원 탈퇴</button>
+	
+</div>
+	    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+</html>
