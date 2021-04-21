@@ -2,7 +2,7 @@
 $(document).ready(function(){ 
 	$("#signInBtn").click(function(){
 		
-		var id=$("#floatingInput").val();
+		var id=$("#floatingID").val();
 		var pw=$("#floatingPassword").val();
 		
 		$.post("signIn",
@@ -51,5 +51,78 @@ $(document).ready(function(){
 			}		   
 		);
 	});
+
+});
+$(document).ready(function(){
+	$("#signUpBtn").click(function(){ 
+		$.post("signUp",
+		{
+
+		}
+		);
+	});
 });
 
+
+
+
+// 멤버 추가
+
+$(document).ready(function(){
+	$("#memberInsertBtn").click(function(){ 
+	
+		var name=$("#floatingName").val();
+		var id=$("#floatingID").val();
+		var pw=$("#floatingPassword").val();
+
+
+		var prefer_arr = [];
+		$("input[name='preference']:checked").each(function() {
+				var prefer = $(this).val();
+			prefer_arr.push(prefer);
+			});
+
+		if(name == ""){
+			alert("이름 값은 필수 입력입니다.");
+
+		}
+		else if(id == ""){
+			alert("아이디 값은 필수 입력입니다.");
+
+		}
+		else if(pw == ""){
+			alert("비밀번호 값은 필수 입력입니다.");
+
+		}else{
+			if($("input:checkbox[name='preference']").is(":checked")==false){
+				alert("하나 이상의 취향 선택은 필수입니다.");
+				
+			}else{
+				$.ajax({
+					method : "POST",
+					url : "memberInsert",
+					traditional : true,
+					data : {
+						name:name,
+						id:id,
+						pw:pw,
+						prefer:prefer_arr
+					},
+				success : function(data){
+					if(data != "아이디가 중복입니다."){
+					alert(data);
+					opener.parent.location.reload();
+					window.close();
+					}else{
+						alert("아이디가 중복입니다.");
+						
+					}
+					}
+				});
+			}
+		}
+
+
+	});
+
+});

@@ -53,9 +53,6 @@ $(document).ready(function(){
 	});
 });
 
-
-
-
 // 회원가입
 $(document).ready(function(){
 	$("#signUpBtn").click(function(){ 

@@ -18,7 +18,7 @@
 	        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	        crossorigin="anonymous">
 	    </script>
-	    <!-- sign CSS & Script-->
+	    <!-- sign Script-->
 	    <script type="text/javascript" src="js/sign.js" charset="UTF-8"></script>
 	     <!-- Bootstrap core JavaScript -->
  		<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -36,6 +36,8 @@
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <link href="" th:href="@{/chat.css}" rel="stylesheet">
 
+		<!-- autocomplete Script-->
+	    <script type="text/javascript" src="js/autocomplete.js" charset="UTF-8"></script>
 
 	
 	    <title th:text="${title}">Movie Mentor</title>
@@ -61,6 +63,9 @@
 	                </li>
 	                <li class="nav-item" th:classappend="${menu} == 'memberInfo'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/memberInfo}">회원 정보 <span class="sr-only" th:if="${menu} == 'memberInfo'">(current)</span></a>
+	                </li>
+	                 <li class="nav-item" th:classappend="${menu} == 'cart'? 'active'">
+	                    <a class="nav-link" href="#" th:href="@{/cart}">장바구니 <span class="sr-only" th:if="${menu} == 'cart'">(current)</span></a>
 	                </li>
 	            </ul>
 	
