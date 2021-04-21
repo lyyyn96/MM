@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,5 +50,21 @@ public class CartController {
 				return e.getMessage();
 			}
 		}
+	
+	@PostMapping("cartDelete")
+	@ResponseBody
+	public String cartDelete(HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			Cart cart = cartService.findCartMovie(request, response);
+			cartService.cartDelete(cart);
+			return "삭제 되었습니다.";
+			
+		}catch(Exception e) {
+			return e.getMessage();
+		}
+		
+		
+	}
 	
 }
