@@ -28,7 +28,9 @@ public class CartService {
 	@Autowired
 	private MovieRepository movieRepository;
 	
-	
+	public void cartInsert(Cart c) {
+		cartRepository.save(c);
+	}
 	
 	public Model showCartList(Model model,
 			HttpServletRequest request, HttpServletResponse response) {
@@ -86,6 +88,21 @@ public class CartService {
 			cartMovies.add(movie);
 		}
 		return cartMovies;
+	}
+
+	public void cartInsert(HttpServletRequest request,
+			HttpServletResponse response) {
+		HttpSession session = request.getSession(false);
+		Member member = (Member) session.getAttribute("member");
+		BigDecimal memCount = member.getMemCount();
+		
+		String movie_title = request.getParameter("movieTitle");
+		Movie movie = movieRepository.findByMovieTitle(movie_title);
+		BigDecimal movieCode = movie.getMovieCode();
+		BigDecimal cartCount=null;
+		Cart cart = new Cart(cartCount, memCount, movieCode);
+		
+		cartRepository.save(cart);
 	}
 
 }

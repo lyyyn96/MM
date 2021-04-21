@@ -10,6 +10,7 @@ import com.proto.mm.model.Cart;
 
 public interface CartRepository extends JpaRepository<Cart, BigDecimal>{
 
-	// Memcount가 일치하는 Cart 값 조회
+	// mem_count가 일치하는 Cart 값 조회
 	public List<Cart> findByMemCount(BigDecimal memCount, Sort sort);
+	
 }
