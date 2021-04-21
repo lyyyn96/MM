@@ -37,7 +37,7 @@ public class MainController{
 		
 		return "index";
 	}
-	
+	/*
 	@GetMapping("home")
 	public String home(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
@@ -45,7 +45,7 @@ public class MainController{
 		mainService.signInCheck(model, request, response);
 	 
 		return "home";
-	}
+	}*/
 	
 	// Sign in
 	@RequestMapping(value = "signIn", 

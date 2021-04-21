@@ -28,7 +28,7 @@ public class Member{
 
 	@Id  // PK임을 명시
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,
-					generator ="MEMBER_NO_SEQ_GENERATOR")
+	generator ="MEMBER_NO_SEQ_GENERATOR")
 	// GenerationType은 Auto가 기본, 자동으로 해줌. 성능은 시퀀스가 가장 좋지만 많은 건을 처리 하고
 	// 자동증가 기본값으로 id 설정 시 IDENTITY가 적절함 
 	private BigDecimal mem_count;
@@ -41,6 +41,5 @@ public class Member{
 	private String name;
 	@NonNull
 	private String preference;
-	
 
 }
