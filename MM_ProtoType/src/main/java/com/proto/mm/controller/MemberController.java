@@ -89,12 +89,64 @@ public class MemberController {
 		return "memberInfo";
 	}
 
-	@GetMapping("memberUpdate")
-	public String memberUpdate(Model model,HttpServletRequest request,
+	@GetMapping("memberUpdateForm")
+	public String update(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
+		System.out.println("회원정보수정 서비스 호출");
+		return "memberUpdateForm";
+	}
+	
+	@RequestMapping(value = "memberUpdate",
+			method= {RequestMethod.POST},
+			produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String memberUpdate(Model model,HttpServletRequest request,
+			HttpServletResponse response, String[] prefer) {
 		// 세션을 체크해서 로그인 상태인지 확인
 		mainService.signInCheck(model, request, response);
+		HttpSession session=request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		Member result = memberService.idCheck(member.getId());
+		String pw=request.getParameter("pw");
+		if(pw.equals(member.getPw()))
+			result.setPw(pw);
+		else
+			return "비밀번호가 일치하지 않습니다.";
+		String name=request.getParameter("name");
+		String temp = Arrays.toString(prefer);
+		String preference = temp.replaceAll("[\\s\\[\\]]", "");
 		
-		return "memberUpdate";
+		if(!name.isEmpty() && !preference.equals("null"))
+		{
+			result.setName(name);
+			result.setPreference(preference);
+		}else if(!name.isEmpty())
+			result.setName(name);
+		else if(!preference.equals("null"))
+			result.setPreference(preference);
+		else
+			return "수정된 정보가 없습니다.";
+		
+		System.out.println(result);
+		memberService.memberInsert(result);
+		session.setAttribute("member", result);
+		
+		return result.getName()+"님 회원 정보 수정 되셨습니다";	
+	}
+	
+	@RequestMapping(value = "memberDelete",
+			method= {RequestMethod.POST},
+			produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String memberDelete(Model model,HttpServletRequest request,
+			HttpServletResponse response, String[] prefer) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+		HttpSession session=request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		memberService.memberDelete(member);
+		session.invalidate();
+		
+		return member.getName()+"님 회원 탈퇴되셨습니다";	
 	}
 }

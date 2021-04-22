@@ -54,6 +54,8 @@ public class MemberService {
 	}
 	
 
-	
+	public void memberDelete(Member m) {
+		memberRepository.delete(m);
+	}
 	
 }

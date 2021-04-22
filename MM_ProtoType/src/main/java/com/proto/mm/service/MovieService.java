@@ -2,6 +2,9 @@ package com.proto.mm.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,7 @@ public class MovieService {
 		// 모든 영화 목록 조회 후 Movie List에 저장 후 model에 값 저장 후 반환
 		List<Movie> movies = movieRepository.findAll(Sort.by(Sort.Direction.ASC, "movieCode"));
 		model.addAttribute("movies", movies);
+<<<<<<< HEAD
 		/*for(Movie movie : movies) {
 			System.out.println(movie.toString());
 		}*/
@@ -34,7 +38,20 @@ public class MovieService {
 		//System.out.println(movieTitle);
 		model.addAttribute("movie", movie);
 		//System.out.println(movie.toString());
+=======
+>>>>>>> afc12baa04fd3e35a5190491ede3c25ea459a6da
 		
+		return model;
+	}
+
+	public Model showMovieByMovieTitle(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("영화검색 서비스 호출");
+		String movieTitle = request.getParameter("movieTitle");
+		Movie movies = movieRepository.findByMovieTitle(movieTitle);
+		model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
+		model.addAttribute("movies", movies);
+		System.out.println(movies.toString());
 		return model;
 	}
 	

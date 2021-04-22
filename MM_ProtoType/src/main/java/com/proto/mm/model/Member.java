@@ -2,6 +2,7 @@ package com.proto.mm.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 
 @Entity // 데이터베이스 연동 클래스임을 명시
@@ -31,7 +31,8 @@ public class Member{
 	generator ="MEMBER_NO_SEQ_GENERATOR")
 	// GenerationType은 Auto가 기본, 자동으로 해줌. 성능은 시퀀스가 가장 좋지만 많은 건을 처리 하고
 	// 자동증가 기본값으로 id 설정 시 IDENTITY가 적절함 
-	private BigDecimal mem_count;
+	@Column(name="mem_count")
+	private BigDecimal memCount;
 	
 	@NonNull
 	private String id;

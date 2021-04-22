@@ -13,6 +13,7 @@ public interface MemberRepository extends JpaRepository<Member, BigDecimal>{
 	public Member findByIdAndPw(String id, String pw);	
 	
 	// id가 일치 하는 DB 값 조회
-	public Member findById(String id);	
+	public Member findById(String id);
+	
 	
 }
