@@ -55,11 +55,14 @@
 		
 			</div>
 			
-			
-			<div id="result_section" th:fragment="result_section">
-			    <!-- <h1>Movie Mentor</h1>
+			<div id="home_section" th:fragment="home_section">
+				<h1>Movie Mentor</h1>
 			    <p class="lead">영화 취향의 길라잡이<br> 
-			        무비멘토 화이팅</p> -->
+			        무비멘토 화이팅</p>
+			</div>
+			
+			<div id="movie_section" th:fragment="movie_section">
+			   
     			<div id="movie_main_title"> User님의 취향저격 영화</div>
     			
 				<span th:each="movie : ${movies}">
