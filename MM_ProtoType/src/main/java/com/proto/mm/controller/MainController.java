@@ -37,6 +37,7 @@ public class MainController{
 		
 		return "index";
 	}
+	
 	/*
 	@GetMapping("home")
 	public String home(Model model,HttpServletRequest request,
