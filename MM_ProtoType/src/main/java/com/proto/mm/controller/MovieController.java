@@ -9,6 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.proto.mm.model.Movie;
 import com.proto.mm.service.MainService;
 import com.proto.mm.service.MovieService;
 
@@ -29,6 +35,19 @@ public class MovieController {
 		return "home";
 	}
 	
+	// Show movie detail
+	@PostMapping("movieDetail")
+	public String showMovieDetail(Model model, HttpServletRequest request,
+							  HttpServletResponse response) {
+		String movieTitle=request.getParameter("movieTitle");
+
+		mainService.signInCheck(model, request, response);
+		movieService.showMovieDetail(model, movieTitle);
+		System.out.println("영화 자세히 보기 정보 : "+model+"\n"+movieTitle);
+		
+		return "movieDetail";
+	}
+
 	@PostMapping("movieList")
 	public String movieList(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
