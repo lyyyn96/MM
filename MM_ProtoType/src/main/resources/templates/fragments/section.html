@@ -80,7 +80,7 @@
 			
 			<div id="result_section" th:fragment="cart_section">
 				<form>
-	    			<div id="movie_main_title"> User님의 장바구니</div>
+	    			<div id="movie_main_title" th:text="${member.name} + '님의 장바구니'"> User님의 장바구니</div>
 	    			<div th:if="${movies != null}">
 						<span th:each="movie : ${movies}">
 					          <div class="col-lg-4 col-md-6 mb-4">
