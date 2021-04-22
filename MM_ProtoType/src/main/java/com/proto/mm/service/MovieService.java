@@ -24,7 +24,7 @@ public class MovieService {
 		// 모든 영화 목록 조회 후 Movie List에 저장 후 model에 값 저장 후 반환
 		List<Movie> movies = movieRepository.findAll(Sort.by(Sort.Direction.ASC, "movieCode"));
 		model.addAttribute("movies", movies);
-<<<<<<< HEAD
+
 		/*for(Movie movie : movies) {
 			System.out.println(movie.toString());
 		}*/
@@ -38,8 +38,6 @@ public class MovieService {
 		//System.out.println(movieTitle);
 		model.addAttribute("movie", movie);
 		//System.out.println(movie.toString());
-=======
->>>>>>> afc12baa04fd3e35a5190491ede3c25ea459a6da
 		
 		return model;
 	}
