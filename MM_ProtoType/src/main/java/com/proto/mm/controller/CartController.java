@@ -33,9 +33,7 @@ public class CartController {
 			HttpServletResponse response) {
 		mainService.signInCheck(model, request, response);
 		cartService.showCartList(model, request, response);
-		HttpSession session = request.getSession(false);
-		Member member = (Member) session.getAttribute("member");
-		model.addAttribute("member", member);
+
 		
 		return "cart";
 	}
