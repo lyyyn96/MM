@@ -44,6 +44,7 @@ public class CartService {
 		try {
 			// 세션에 로그인 된 멤버의 memCount 가져오기
 			Member member = (Member) session.getAttribute("member");
+			model.addAttribute(member);
 			BigDecimal memCount = member.getMemCount();
 			System.out.println(member.toString());
 			System.out.println("세션 멤버 가져오기 성공");
