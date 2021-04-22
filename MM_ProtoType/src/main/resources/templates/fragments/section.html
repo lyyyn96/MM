@@ -81,7 +81,7 @@
 				</span>
 			</div>
 			
-			<div id="result_section" th:fragment="cart_section">
+			<div  id="result_section" th:fragment="cart_section">
 				<form>
 	    			<div id="movie_main_title" th:text="${member.name} + '님의 장바구니'"> User님의 장바구니</div>
 	    			<div th:if="${movies != null}">
@@ -90,12 +90,12 @@
 					            <div class="card h-100">
 					              <div class="card-body">
 					                <h4 class="card-title">
-					                  <p th:text="${movie.movieTitle}" id="movieTitle"></p>
+					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
 					                <p th:text="${movie.moviePrice}"></p>
 					                <button>자세히 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;<button>구매하기</button>
 					                <br/>
-					                <button id="cartDeleteBtn">삭제</button>
+					                <button class="" th:classappend="${movieStat.index}"  name="cartDeleteBtn">삭제</button>
 					                <br>
 					              </div>
 					            </div>
