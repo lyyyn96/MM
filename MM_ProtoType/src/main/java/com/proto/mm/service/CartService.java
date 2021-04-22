@@ -28,7 +28,9 @@ public class CartService {
 	@Autowired
 	private MovieRepository movieRepository;
 	
-	
+	public void cartInsert(Cart c) {
+		cartRepository.save(c);
+	}
 	
 	public Model showCartList(Model model,
 			HttpServletRequest request, HttpServletResponse response) {
@@ -50,18 +52,11 @@ public class CartService {
 			// cartCount로 정렬하여 가져오기
 			List<Cart> carts = cartRepository.findByMemCount(memCount, Sort.by(Sort.Direction.ASC, "cartCount"));
 			model.addAttribute("carts", carts);
-
-			for(Cart cart : carts) {
-				System.out.println(cart.toString());
-			}
 			System.out.println("카트 목록 가져오기 성공");
 			
 			// cart에 있는 영화 코드를 기준으로 영화 정보 가져오기
 			List<Movie> cartMovies = findMovieByMovieCode(carts);
 			model.addAttribute("movies", cartMovies);
-			for(Movie cartMovie : cartMovies) {
-				System.out.println(cartMovie.toString());
-			}
 			System.out.println("카트 내 영화 목록 가져오기 성공");
 			
 		
@@ -79,13 +74,40 @@ public class CartService {
 		
 		for(Cart cart : carts) {
 			BigDecimal movieCode = cart.getMovieCode();
-			System.out.println(movieCode);
 			Movie movie = new Movie();
 			movie = movieRepository.findByMovieCode(movieCode);
-			System.out.println(movie);
 			cartMovies.add(movie);
 		}
 		return cartMovies;
+	}
+
+	public void cartInsert(HttpServletRequest request,
+			HttpServletResponse response) {
+		HttpSession session = request.getSession(false);
+		Member member = (Member) session.getAttribute("member");
+		BigDecimal memCount = member.getMemCount();
+		
+		String movie_title = request.getParameter("movieTitle");
+		Movie movie = movieRepository.findByMovieTitle(movie_title);
+		BigDecimal movieCode = movie.getMovieCode();
+		BigDecimal cartCount=null;
+		Cart cart = new Cart(cartCount, memCount, movieCode);
+		
+		cartRepository.save(cart);
+	}
+
+	public void cartDelete(Cart c) {
+		System.out.println("카트 삭제 서비스 호출");
+		cartRepository.delete(c);
+	}
+
+	public Cart findCartMovie(HttpServletRequest request, HttpServletResponse response) {
+		 System.out.println("영화 찾기 서비스 호출");
+		 String movieTitle=request.getParameter("movieTitle");
+		 Movie movie=movieRepository.findByMovieTitle(movieTitle);
+		 BigDecimal movieCode = movie.getMovieCode();
+		 Cart cart = cartRepository.findByMovieCode(movieCode);
+		return cart;
 	}
 
 }
