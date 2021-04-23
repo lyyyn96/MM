@@ -99,20 +99,13 @@ public class CartService {
 		HttpSession session = request.getSession(false);
 		Member member = (Member) session.getAttribute("member");
 		BigDecimal memCount = member.getMemCount();
-<<<<<<< HEAD
-		 
-=======
-		
->>>>>>> 981639a8dccab69864f08f71a414e55b9dd3e6d5
+
 		String movie_title = request.getParameter("movieTitle");
 		Movie movie = movieRepository.findByMovieTitle(movie_title);
 		BigDecimal movieCode = movie.getMovieCode();
 		
-<<<<<<< HEAD
 		return cartRepository.findByMovieCodeAndMemCount(memCount, movieCode);
-=======
-		return cartRepository.findByMemCountAndMovieCode(memCount, movieCode);
->>>>>>> 981639a8dccab69864f08f71a414e55b9dd3e6d5
+
 		
 	}
 
@@ -126,19 +119,12 @@ public class CartService {
 		 HttpSession session = request.getSession(false);
 		 Member member = (Member) session.getAttribute("member");
 		 BigDecimal memCount = member.getMemCount();
-<<<<<<< HEAD
 		 
 		 String movieTitle=request.getParameter("movieTitle");
 		 Movie movie=movieRepository.findByMovieTitle(movieTitle);
 		 BigDecimal movieCode = movie.getMovieCode();
 		 Cart cart = cartRepository.findByMovieCodeAndMemCount(movieCode, memCount);
-=======
-			
-		 String movieTitle=request.getParameter("movieTitle");
-		 Movie movie=movieRepository.findByMovieTitle(movieTitle);
-		 BigDecimal movieCode = movie.getMovieCode();
-		 Cart cart = cartRepository.findByMemCountAndMovieCode(memCount, movieCode);
->>>>>>> 981639a8dccab69864f08f71a414e55b9dd3e6d5
+
 		return cart;
 	}
 

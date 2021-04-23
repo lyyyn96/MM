@@ -13,10 +13,6 @@ public interface CartRepository extends JpaRepository<Cart, BigDecimal>{
 	// mem_count가 일치하는 Cart 값 조회
 	public List<Cart> findByMemCount(BigDecimal memCount, Sort sort);
 
-<<<<<<< HEAD
 	public Cart findByMovieCodeAndMemCount(BigDecimal movieCode, BigDecimal memCount);
-=======
-	public Cart findByMemCountAndMovieCode(BigDecimal memCount, BigDecimal movieCode);
->>>>>>> 981639a8dccab69864f08f71a414e55b9dd3e6d5
 	
 }
