@@ -115,18 +115,8 @@
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
 					                <p th:text="${movie.moviePrice}"></p>
-<<<<<<< HEAD
-					                <button>자세히 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;
-					                <form method="get" action="movieOrder">
-					               		<input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
-					                	<button class="" th:calssappend="${movieStart.index}" type="submit">구매하기</button>
-					                </form>
-					                <br/>
-					                
-					                <button class="" th:classappend="${movieStat.index}"  name="cartDeleteBtn">삭제</button>
-					                <br>
-=======
-					                	<form method="get" action="moiveOrder">
+
+					                	<form method="get" action="movieOrder">
 							                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
 							                <button type="submit">구매</button>
 						                </form>
@@ -138,7 +128,7 @@
 						                	<br>
 						                <div><button class="" th:classappend="${movieStat.index}" name="cartDeleteBtn">삭제</button></div>
 					                		<br>	
->>>>>>> 6705fe94a263620ce1bd8012e1bd7c491511b621
+
 					              </div>
 					            </div>
 					            </div>
