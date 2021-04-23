@@ -19,15 +19,16 @@
 	<article class="container">
             <div class="page-header">
                 <div class="col-md-6 col-md-offset-3">
-                <h3><span th:text="${order.movie_title}"></span>영화 구매</h3>
-                <h5><span th:text="${order.price}"></span>원</h5>
+                <h3><span th:text="${movie.movieTitle}"></span>영화 구매</h3>
+                <h5><span th:text="${movie.moviePrice}"></span>원</h5>
                 </div>
             </div>
             <div class="col-sm-6 col-md-offset-3">
                 <form role="form" >
                     <div class="form-floating">
-                    	<label for="floatingInput">구매정보</label>
-				      	<input type="text" class="form-control" id="floatingName" placeholder="영화정보..." required/>
+                    	<label for="floatingInput">결제 방법 선택</label>
+				      	<label><input type="radio" class="form-control" id="paymentMethod" value="card">카드 결제</label>
+				      	<label><input type="radio" class="form-control" id="paymentMethod" value="account">계좌 이체</label>
 				    </div>
 
                     <br>

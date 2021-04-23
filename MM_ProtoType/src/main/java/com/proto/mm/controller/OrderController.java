@@ -23,13 +23,23 @@ public class OrderController {
 	@Autowired
 	MainService mainService;
 	
+	@GetMapping("movieOrder")
+	public String cart(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+		orderService.showOrder(model, request, response);
+	
+		return "movieOrder";
+	}
+	
 	@GetMapping("orders")
 	public String order(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
 		// 세션을 체크해서 로그인 상태인지 확인
 		mainService.signInCheck(model, request, response);
 		HttpSession session=request.getSession();
-		orderService.showOrderList(model,session);
+		orderService.showOrderList(model, request, response);
 		return "orders";
 	}
 }

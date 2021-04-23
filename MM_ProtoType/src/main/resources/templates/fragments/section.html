@@ -101,7 +101,6 @@
 			</div>
 			
 			<div  id="result_section" th:fragment="cart_section">
-				<form>
 	    			<div id="movie_main_title" th:text="${member.name} + '님의 장바구니'"> User님의 장바구니</div>
 	    			<div th:if="${movies != null}">
 						<span th:each="movie : ${movies}">
@@ -112,8 +111,13 @@
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
 					                <p th:text="${movie.moviePrice}"></p>
-					                <button>자세히 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;<button>구매하기</button>
+					                <button>자세히 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+					                <form method="get" action="movieOrder">
+					               		<input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
+					                	<button class="" th:calssappend="${movieStart.index}" type="submit">구매하기</button>
+					                </form>
 					                <br/>
+					                
 					                <button class="" th:classappend="${movieStat.index}"  name="cartDeleteBtn">삭제</button>
 					                <br>
 					              </div>
@@ -121,7 +125,6 @@
 					            </div>
 						</span>
 					</div>
-				</form>
 			</div>
 			
 			

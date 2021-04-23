@@ -29,9 +29,9 @@ public class Order {
 	private String orderDate;
 	@NonNull
 	@Column(name = "mem_count")
-	private String memCount;
+	private BigDecimal memCount;
 	@NonNull
 	@Column(name = "movie_code")
-	private String movieCode;
+	private BigDecimal movieCode;
 
 }
