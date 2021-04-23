@@ -1,12 +1,9 @@
 # Compiled class file
 *.class
 
-<<<<<<< HEAD
 # OS Files
 .DS_Store
 
-=======
->>>>>>> ebf1e2ded24b75826845f289b833afbea46057ed
 # Log file
 *.log
 
@@ -27,7 +24,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-<<<<<<< HEAD
+
 /.metadata/
-=======
->>>>>>> ebf1e2ded24b75826845f289b833afbea46057ed
+
