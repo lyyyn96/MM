@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # K-Digital Training X 멀티 캠퍼스
 
 #### AI 기반 지능형 서비스 개발 A반 파이널 프로젝트 기획 (팀)
@@ -116,9 +115,3 @@ ___
 
 - Oracle XE : SQL Developer
 - TABLE : `USER`, `MOVIE`, `POSTER`, `CART`, `ORDER`
-
-
-
-=======
-# deploy
->>>>>>> ebf1e2ded24b75826845f289b833afbea46057ed
