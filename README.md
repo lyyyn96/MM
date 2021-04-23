@@ -34,17 +34,20 @@ ___
     📂 Spring Boot 2.4.4<br/>
     📂 JDK 11<br/>
     📂 Maven<br/>
+    📂 Ojdbc10<br/>
     📂 Spring data JPA<br/>
     📂 Lombok<br/>
     📂 Thymeleaf<br/>
     📂 BootStrap 5<br/>
     📂 <a href="https://github.com/ktae23/TIL/tree/master/python">Python Crawler</a><br/>
 </details>
+
 <details>
     <summary>📁 Deployment</summary>
     📂 AWS EC2 Ubuntu <br/>
 	📂 Docker
 </details>
+
 
 <details>
     <summary>📁 Collaboration</summary>
@@ -53,7 +56,6 @@ ___
 📂 Slack<br/>
 📂 Notion<br/>
 </details>
-
 <br/>
 
 #### 📌구현 기능
