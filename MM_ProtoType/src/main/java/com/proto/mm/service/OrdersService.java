@@ -51,14 +51,18 @@ public class OrdersService {
 		Member member = (Member)session.getAttribute("member");
 		BigDecimal memCount = member.getMemCount();
 		List<Orders> orders = orderRepository.findByMemCount(memCount, Sort.by(Sort.Direction.ASC, "orderCount"));
-		model.addAttribute("orders", orders);
-		
-		List<Movie> orderMovies = findMovieByMovieCode(orders);
-		model.addAttribute("movies", orderMovies);
-		
-		/*for(Order order : orders) {
-			System.out.println(order.toString());
-		}*/
+		if(orders.size()!=0) {
+			model.addAttribute("orders", orders);
+			
+			List<Movie> orderMovies = findMovieByMovieCode(orders);
+			model.addAttribute("movies", orderMovies);
+
+			
+			for(int i=0;i<orders.size();i++) {
+				System.out.println(orders.get(i).toString());
+				System.out.println(orderMovies.get(i).toString());
+			}
+		}		
 		
 		return model;
 	}

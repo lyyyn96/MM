@@ -76,10 +76,11 @@ $(document).ready(function(){
 
 //영화 다운로드
 $(document).ready(function(){
-	$("#downloadBtn").click(function(){ 
-		var index = $(this).attr("name");
+	$("button[name=downloadBtn]").click(function(){ 
+		var index = $(this).attr("id");
 		var movieTitle=$('.movieTitle').eq(index).text();
-		$.post("orderDown",
+		if (confirm(movieTitle+' 를(을) 다운로드 받으시겠습니까?')){
+			$.post("orderDown",
 				{			   
 					movieTitle:movieTitle,
 				},
@@ -87,16 +88,17 @@ $(document).ready(function(){
 					alert(data);	
 					location.reload();	
 				});
+		}
 	});
 });
 
 
 //영화 환불
 $(document).ready(function(){
-	$("#refundBtn").click(function(){ 	
-		var index = $(this).attr("name");
+	$("button[name=refundBtn]").click(function(){ 	
+		var index = $(this).attr("id");
 		var movieTitle=$('.movieTitle').eq(index).text();
-		if (confirm('정말 환불하시겠습니까?')){
+		if (confirm(movieTitle + ' 를(을) 정말 환불하시겠습니까?')){
 			$.post("orderDelete",
 					{			   
 						movieTitle:movieTitle
