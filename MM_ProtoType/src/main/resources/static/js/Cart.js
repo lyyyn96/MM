@@ -38,6 +38,17 @@ $(document).ready(function(){
 	});
 });
 
+//영화 구매 취소
+$(document).ready(function(){
+	$("#cancleBtn").click(function(){ 	
+		var movieTitle=$('.movieTitle').text();	
+		if (confirm(movieTitle + ' 구매를 취소하시겠습니까?')){
+			alert("구매가 취소되었습니다.");
+			location.href = "cart";
+		}
+	});	
+});
+
 //영화 구매
 $(document).ready(function(){
 	$("#orderBtn").click(function(){ 	
