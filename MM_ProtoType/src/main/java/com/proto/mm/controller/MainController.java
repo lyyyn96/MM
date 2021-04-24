@@ -42,7 +42,7 @@ public class MainController{
 	
 	@GetMapping("home")
 	public String movie(Model model,HttpServletRequest request,
-			HttpServletResponse response, String[] prefer) {
+			HttpServletResponse response) {
 		// 세션을 체크해서 로그인 상태인지 확인
 		mainService.signInCheck(model, request, response);
 		mainService.showSelectedGenre(model, request, response);
