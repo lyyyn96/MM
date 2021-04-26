@@ -119,6 +119,7 @@
 					                <h4 class="card-title">
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
+<<<<<<< HEAD
 					                <p th:text="${movie.moviePrice}"></p>
 <<<<<<< HEAD
 =======
@@ -136,6 +137,16 @@
 						                	<br>
 						                <div><button class="" th:classappend="${movieStat.index}" name="cartDeleteBtn">삭제</button></div>
 					                		<br>	
+=======
+					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
+					                	
+										<button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">구매</button>
+										&nbsp;&nbsp;
+						                <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="cartDeleteBtn">삭제</button>
+					                		<br><br>
+					                	<div><button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieDetailBtn">자세히 보기</button></div>
+						                	<br>	
+>>>>>>> 79cac84b33e2c24a21ad33d217eb99bf8754a995
 
 					              </div>
 					            </div>
