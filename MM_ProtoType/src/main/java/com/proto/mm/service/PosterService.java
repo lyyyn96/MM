@@ -1,8 +1,16 @@
 package com.proto.mm.service;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +20,7 @@ import com.proto.mm.model.Movie;
 import com.proto.mm.model.Poster;
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.PosterRepository;
+import com.proto.mm.util.SaveImg;
 
 @Service
 public class PosterService {
@@ -47,4 +56,34 @@ public class PosterService {
 		return model;
 	}
 
+	public void posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        
+        String movieTitle = request.getParameter("movieTitle");
+        System.out.println(movieTitle);
+        Movie movie = movieRepository.findByMovieTitle(movieTitle);
+        BigDecimal movieCode = movie.getMovieCode();
+        System.out.println(movieCode);
+        Poster poster =	posterRepository.findByMovieCode(movieCode);
+
+        String imgUrl = "http://localhost:8090/poster/" + poster.getPosterPath();
+        
+        String tmp = movie.getMovieTitle();
+		String fileName = tmp.replace(" ", "").replace(":", "_");
+		
+		String home = System.getProperty("user.home");
+		String path = (home+"/Downloads/"); 
+		SaveImg saveImg = new SaveImg();
+
+		try {
+			int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1 리턴, 오류 시 -1 리턴
+			if (result == 1) {
+				System.out.println("저장된경로 : " + saveImg.getPath());
+				System.out.println("저장된파일이름 : " + saveImg.getSavedFileName());
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }

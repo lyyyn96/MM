@@ -69,9 +69,9 @@
 			                <h4 class="card-title">
 			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 			                   </h4>
-			                <span th:each="poster : ${posters}">
+			                <!-- <span th:each="poster : ${posters}">
 			                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
-			                </span>
+			                </span> -->
 			               
 			                <p th:text="${movie.moviePrice}"></p>
 					                <form method="get" action="movieDetail">
@@ -97,7 +97,8 @@
 			                <h4 class="card-title">
 			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 			                </h4>
-			                <img id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${filePath} + '/'"  width="25" height="25%"/>
+			                <!-- <img id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${filePath} + '/'"  width="25" height="25%"/>
+			               	 -->
 			               	<p th:text="'별점 : ' + ${movie.movieRating}"></p>
 			                <p th:text="'장르 : ' + ${movie.movieGenre}"></p>
 			                <p th:text="'감독 : ' + ${movie.movieDirector}"></p>
@@ -115,7 +116,7 @@
 		            </div>
 	            </div>
 			</div>
-			
+
 			<div  id="result_section" th:fragment="cart_section">
 	    			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 장바구니'"> User님의 장바구니</div>
 	    			<div th:if="${movies != null}">
@@ -125,24 +126,10 @@
 					              <div class="card-body-cart">
 					                <h4 class="card-title">
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
-					                    </h4>
-					                <span th:each="poster : ${posters}">
+					                </h4>
+					                <!--   <span th:each="poster : ${posters}">
 					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
-					                </span>
-					                <p th:text="${movie.moviePrice}"></p>
-					                	<form method="get" action="movieOrder">
-							                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
-							                <button type="submit">구매</button>
-						                </form>
-						                	<br>
-						                <form method="get" action="movieDetail">
-							                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
-							                <button type="submit" name="movieDetailBtn">자세히 보기</button>
-						                </form>
-						                	<br>
-						                <div><button class="" th:classappend="${movieStat.index}" name="cartDeleteBtn">삭제</button></div>
-					                		<br>	
-
+					                </span>-->
 					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
 					                	
 										<button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">구매</button>
@@ -154,11 +141,9 @@
 					              </div>
 					            </div>
 					            </div>
-				            </span>
+						</span>
 					</div>
 			</div>
-			
-			
 			
 			
 		</article>
