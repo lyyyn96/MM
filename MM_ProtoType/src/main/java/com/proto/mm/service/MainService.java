@@ -1,6 +1,5 @@
 package com.proto.mm.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -19,7 +18,8 @@ import com.proto.mm.repository.MovieRepository;
 
 @Service
 public class MainService {
-	
+	@Autowired
+	private PosterService posterService;
 	@Autowired
 	private MovieRepository movieRepository;
 	
@@ -56,7 +56,7 @@ public class MainService {
 		
 		List<Movie> movies = movieRepository.findTop9ByMovieGenreContains(movieGenre[selectedGenreCount], Sort.by(Sort.Direction.DESC, "movieRating"));
 		model.addAttribute("movies", movies);
-
+		posterService.showPosterResult(model);
 		System.out.println("영화 취향 선택에 따른 영화 목록 서비스");
 		
 		return model;

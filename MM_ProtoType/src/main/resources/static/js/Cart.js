@@ -118,6 +118,10 @@ $(document).ready(function(){
 					alert(data);	
 					location.reload();	
 				});
+			$.get("download",
+				{			   
+					movieTitle:movieTitle
+				});
 		}
 	});
 });

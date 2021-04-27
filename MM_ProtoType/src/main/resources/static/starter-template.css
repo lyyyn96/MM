@@ -4,6 +4,15 @@ body {
     */
 }
 
+#poster{
+	display:block;
+	margin: 0px auto;
+	width: 15rem;
+  	height: 23rem;
+  	object-fit: cover;
+
+}
+
 #home_section{
     width: auto;
     text-align: center;
