@@ -1,9 +1,7 @@
 body {
     /* padding-top: 5rem;
     background-color: #000! important;
-    background-image: url(imgs/night-stars.jpg);
-    background-repeat: no-repeat;
-    background-size:1600px; */
+    */
 }
 
 #home_section{
@@ -11,12 +9,12 @@ body {
     text-align: center;
     height: 100vh;
     position: relative;
-    overflow:scroll;
+    overflow-y:auto;
 }
 
 #movie_section{
 	overflow-y:auto;
-	height: 100vh;
+	/* height: 100vh; */
 }
 
 #movie_main_title{
@@ -48,7 +46,7 @@ div.card-body-cart{
 
 div.card-body-detail{
 	height:650px;
-	width: 300px;
+	width: 200px;
 }
 
 div.col-md-6-detail {
