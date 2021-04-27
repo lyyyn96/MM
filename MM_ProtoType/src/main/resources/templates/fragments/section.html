@@ -71,10 +71,10 @@
 			                <p th:text="${movie.moviePrice}"></p>
 					                <form method="get" action="movieDetail">
 						                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
-						                <button type="submit" name="movieDetailBtn">자세히 보기</button>
+						                <button class="btn btn-dark" type="submit" name="movieDetailBtn">자세히 보기</button>
 					                </form>
 					                	<br>
-						           <div> <button class="" th:classappend="${movieStat.index}" name="cartInsertBtn">담기</button></div>
+						           <div> <button class="btn btn-dark" th:classappend="${movieStat.index}" name="cartInsertBtn">담기</button></div>
 						            	<br>
 				                <br>
 			              </div>
