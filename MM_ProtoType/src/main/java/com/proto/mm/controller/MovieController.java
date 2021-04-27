@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.proto.mm.service.MainService;
 import com.proto.mm.service.MovieService;
+import com.proto.mm.service.PosterService;
 
 @Controller
 public class MovieController {
@@ -21,7 +22,8 @@ public class MovieController {
 	@Autowired
 	MainService mainService;
 	
-
+	@Autowired
+	PosterService posterService;
 	
 	// Show movie detail
 	@RequestMapping(value = "movieDetail", 
@@ -34,6 +36,7 @@ public class MovieController {
 		movieService.showMovieDetail(model, movieTitle);
 		System.out.println("영화 자세히 보기 정보 : "+model+"\n"+movieTitle);
 		
+		
 		return "home";
 	}
 
@@ -45,7 +48,6 @@ public class MovieController {
 		mainService.signInCheck(model, request, response);
 		movieService.showMovieList(model, request, response);
 		System.out.println(model.getAttribute("searched"));
-		
 		return "home";
 	}
 	
@@ -64,12 +66,10 @@ public class MovieController {
 			movieService.showMovieList(model, request, response);
 		}
 		
-		
 		System.out.println(model.getAttribute("searched"));
 		
 		return "home";
 	}
-
 
 	
 	
