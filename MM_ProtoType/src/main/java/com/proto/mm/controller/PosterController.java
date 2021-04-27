@@ -1,15 +1,12 @@
 package com.proto.mm.controller;
 
-import java.math.BigDecimal;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.proto.mm.service.PosterService;
 
@@ -18,11 +15,13 @@ public class PosterController {
 	
 	@Autowired
 	PosterService posterService;
-
-	@RequestMapping("download/{movieCode}")
-	public String download(@PathVariable("movieCode") BigDecimal movieCode, Model model,HttpServletRequest request,
-			HttpServletResponse response){
+	
+	@GetMapping("download")
+    public void downLoad(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return "home";
-	}
+		posterService.posterDownload(model, request, response);
+
+    }
 }
+
+
