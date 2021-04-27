@@ -26,6 +26,10 @@ body {
 	/* height: 100vh; */
 }
 
+#movieDetail_section{
+	overflow-y:auto;
+}
+
 #movie_main_title{
 	padding-top:30px;
 	padding-bottom:30px;
@@ -43,6 +47,7 @@ div.h-100{
 	border-radius: 0px! important;
 	background: transparent! important;
 	color: #000;
+	height: 450px! important;
 }
 
 div.card-body{
@@ -50,7 +55,7 @@ div.card-body{
 }
 
 div.card-body-cart{
-	height:200px;
+	height:650px;
 }
 
 div.card-body-detail{
