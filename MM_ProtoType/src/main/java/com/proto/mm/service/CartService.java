@@ -108,7 +108,7 @@ public class CartService {
 		Movie movie = movieRepository.findByMovieTitle(movie_title);
 		BigDecimal movieCode = movie.getMovieCode();
 		
-		return cartRepository.findByMovieCodeAndMemCount(memCount, movieCode);
+		return cartRepository.findByMovieCodeAndMemCount(movieCode,memCount);
 
 		
 	}
