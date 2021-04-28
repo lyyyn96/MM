@@ -1,11 +1,19 @@
 package com.proto.mm.service;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
+=======
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+>>>>>>> ca401c16057c2884d0d03a67015e4fa4e066fc48
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -67,6 +75,7 @@ public class MovieService {
 		return model;
 	}
 	
+<<<<<<< HEAD
 	public Model movieFilter(Model model, String movieGenre, int movieRating, int moviePrice,String movieRdate,int movieRtime) {
 		try {
 			System.out.println("영화 필터 호출");
@@ -94,6 +103,32 @@ public class MovieService {
 			System.out.println(e.getStackTrace());
 		}
 		return model;
+=======
+	public JSONArray autoSearch(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		String searchValue = request.getParameter("searchValue"); 
+		JSONArray arrayObj = new JSONArray();
+		JSONObject jsonObj = null; 
+		//////////// 임의의 데이터(db라 가정하자) //////////// 
+		ArrayList<String> resultlist = new ArrayList<String>(); 
+
+		List<Movie> movies = movieRepository.findByMovieTitleStartsWith(searchValue, Sort.by(Sort.Direction.ASC, "movieTitle"));
+		
+		for(Movie movie : movies) { 
+			String str = movie.getMovieTitle();
+				resultlist.add(str); 
+			} 
+		///////////resultlist를 db에서 조회후 뽑아온 list라고 가정한다./////////// 
+		//뽑은 후 json파싱 
+		for(String str : resultlist) {
+			jsonObj = new JSONObject();
+			jsonObj.put("data", str);
+			arrayObj.add(jsonObj); 
+			} 
+		
+		return arrayObj;
+
+>>>>>>> ca401c16057c2884d0d03a67015e4fa4e066fc48
 	}
 	
 }
