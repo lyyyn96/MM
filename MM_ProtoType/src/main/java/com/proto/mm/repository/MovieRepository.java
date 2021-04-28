@@ -19,5 +19,7 @@ public interface MovieRepository extends JpaRepository<Movie, BigDecimal>{
 	public List<Movie> findByMovieTitleContains(String movieTitle, Sort sort);
 	
 	public List<Movie> findTop6ByMovieGenreContains(String movieGenre, Sort sort);
+
+	public List<Movie> findByMovieTitleStartsWith(String searchValue, Sort sort);
 	
 }
