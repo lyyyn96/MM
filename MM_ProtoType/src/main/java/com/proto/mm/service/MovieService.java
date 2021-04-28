@@ -1,12 +1,12 @@
 package com.proto.mm.service;
 
-<<<<<<< HEAD
+
 import java.math.BigDecimal;
-=======
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
->>>>>>> ca401c16057c2884d0d03a67015e4fa4e066fc48
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,7 +75,6 @@ public class MovieService {
 		return model;
 	}
 	
-<<<<<<< HEAD
 	public Model movieFilter(Model model, String movieGenre, int movieRating, int moviePrice,String movieRdate,int movieRtime) {
 		try {
 			System.out.println("영화 필터 호출");
@@ -103,7 +102,8 @@ public class MovieService {
 			System.out.println(e.getStackTrace());
 		}
 		return model;
-=======
+	}
+
 	public JSONArray autoSearch(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		String searchValue = request.getParameter("searchValue"); 
@@ -128,7 +128,6 @@ public class MovieService {
 		
 		return arrayObj;
 
->>>>>>> ca401c16057c2884d0d03a67015e4fa4e066fc48
 	}
 	
 }
