@@ -68,6 +68,11 @@
 			              <div class="card-body">
 			                <h4 class="card-title">
 			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
+
+			                </h4>
+			                <p th:text="${movie.movieGenre}"></p>
+			                <p th:text="${movie.movieRating}"></p>
+
 			                   </h4>
 			                <span th:if="${movie.movieCode == poster.movieCode}" th:each="poster : ${posters}">
 			                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
