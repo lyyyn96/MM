@@ -1,7 +1,5 @@
 package com.proto.mm.controller;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,7 +58,7 @@ public class MainController{
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		
-		JSONObject json=new JSONObject();
+		JSONObject json=new org.json.simple.JSONObject();
 
 		
 		try {
