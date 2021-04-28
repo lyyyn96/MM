@@ -54,7 +54,7 @@ public class MainService {
 		int selectedGenreCount = new Random().nextInt(movieGenre.length);
 		//System.out.println(selectedGenreCount+"번 째로 고른 장르");
 		
-		List<Movie> movies = movieRepository.findTop9ByMovieGenreContains(movieGenre[selectedGenreCount], Sort.by(Sort.Direction.DESC, "movieRating"));
+		List<Movie> movies = movieRepository.findTop6ByMovieGenreContains(movieGenre[selectedGenreCount], Sort.by(Sort.Direction.DESC, "movieRating"));
 		model.addAttribute("movies", movies);
 		posterService.showPosterResult(model);
 		System.out.println("영화 취향 선택에 따른 영화 목록 서비스");
