@@ -64,7 +64,7 @@ function formatAMPM(date) {
 }            
 
 //-- No use time. It is a javaScript effect.
-function insertChat(who, text){
+function insertChat(who, text, time){
     var control = "";
     var date = formatAMPM(new Date());
     
@@ -117,7 +117,7 @@ $(".mytext").on("keyup", function(e){
 			},function(data){	
 				var text = data;
 		        if (text !== ""){
-		            insertChat("mm", text);              
+		            insertChat("mm", text,15);              
 		        }	  
 				}		   
 			);
@@ -125,8 +125,6 @@ $(".mytext").on("keyup", function(e){
 });
 
 
-//-- Clear Chat
 resetChat();
 
 });
-//-- NOTE: No use time on insertChat.
