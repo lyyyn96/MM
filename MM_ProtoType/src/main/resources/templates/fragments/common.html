@@ -51,8 +51,18 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		
 		<script type="text/javascript" src="js/autoSearch.js" charset="UTF-8"></script>
+
+				
+		<style>
+		.ui-menu ui-widget ui-widget-content ui-autocomplete ui-front {
+   			 z-index: 100 !important;
+   			 width: 196px; 
+   			 top: 48px; 
+   			 left: 729.484px; 
+   			 display: none;
+			}
 		
-	
+		</style>
 		
 	
 	    <title th:text="${title}">Movie Mentor</title>
@@ -110,4 +120,5 @@
 	    </nav>     
 	                    
 	</body>  
+
 </html>
