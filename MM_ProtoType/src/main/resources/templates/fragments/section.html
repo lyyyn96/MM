@@ -47,6 +47,8 @@
 			                <p th:text="'장르 : ' + ${movie.movieGenre}"></p>
 			                <p th:text="'평점 : ' + ${movie.movieRating}+'점'"></p>
 
+			                   </h4>
+
 			                <span th:each="poster : ${posters}">
 			                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 			                  	<div class = "image_overlay image_overlay_blur">
@@ -115,9 +117,11 @@
 					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 					                </span>
 					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
-					                	
-										<button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">구매</button>
-										&nbsp;&nbsp;
+										<form method="post" action="kakaoPay">
+											<input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
+										    <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
+										</form>
+										<br>
 						                <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="cartDeleteBtn">삭제</button>
 					                		<br><br>
 					                	<div><button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieDetailBtn">자세히 보기</button></div>

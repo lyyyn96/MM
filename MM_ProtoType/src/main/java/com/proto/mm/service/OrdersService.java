@@ -14,7 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.proto.mm.model.Cart;
+import com.proto.mm.model.KakaoPayApproval;
 import com.proto.mm.model.Member;
 import com.proto.mm.model.Movie;
 import com.proto.mm.model.Orders;
@@ -30,6 +30,7 @@ public class OrdersService {
 	
 	@Autowired
 	private MovieRepository movieRepository;
+	
 	
 	public Model showOrder(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
@@ -80,16 +81,18 @@ public class OrdersService {
 		return orderMovies;
 	}
 
-	public void orderInsert(HttpServletRequest request, HttpServletResponse response) {
+	public void orderInsert(Model model,HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("구매 진행 서비스 호출");
 		HttpSession session = request.getSession(false);
 		Member member = (Member) session.getAttribute("member");
 		BigDecimal memCount = member.getMemCount();
 		
-		String movie_title = request.getParameter("movieTitle");
-		String orderMethod = request.getParameter("orderMethod");
-		Movie movie = movieRepository.findByMovieTitle(movie_title);
+		Movie movie = (Movie) session.getAttribute("movie");
 		BigDecimal movieCode = movie.getMovieCode();
+		KakaoPayApproval kakaoPayApproval=(KakaoPayApproval) model.getAttribute("info");
+		
+		String orderMethod = kakaoPayApproval.getPayment_method_type();
+		
 		BigDecimal orderCount=null;
 		Timestamp orderDate = new Timestamp(System.currentTimeMillis());
 		Orders order = new Orders(orderCount, orderMethod, orderDate, memCount, movieCode, "0");
