@@ -95,10 +95,9 @@ function insertChat(who, text, time){
     setTimeout(
         function(){                        
             $(".message-box").append(control);
-
         }, time);
-    
 }
+
 
 function resetChat(){
     $(".message-box").empty();
@@ -108,7 +107,8 @@ $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-            insertChat("me", text);              
+            insertChat("me", text);
+            /*$(".message-box").scrollTop($(".message-box")[0].scrollHeight);*/
             $(this).val('');
         }
 
@@ -117,13 +117,14 @@ $(".mytext").on("keyup", function(e){
 			},function(data){	
 				var text = data;
 		        if (text !== ""){
-		            insertChat("mm", text,15);              
-		        }	  
-				}		   
+		            insertChat("mm", text,15);
+		            /*$(".message-box").scrollTop($(".message-box")[0].scrollHeight);*/
+		            $(".message-box").animate({scrollTop: '9999999999'}, 100);
+		        }
+			}
 			);
     }
 });
-
 
 resetChat();
 
