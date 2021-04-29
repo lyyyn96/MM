@@ -7,7 +7,10 @@ $(document).ready(function(){
 			$.get("chat",{
 				chat:chat
 				
-				});
+				},function(data){		  
+					//location.href="home";	
+					}		   
+				);
 	});
 });
 

@@ -13,9 +13,11 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.SwingWorker;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -23,14 +25,23 @@ import com.proto.mm.model.Movie;
 
 @Service
 public class ChattingService {
-	public static ArrayList<Movie> movieList = new ArrayList<Movie>();
-	public static boolean flag;
+	public static boolean flag;	
+	
+	@Autowired
+	MovieService movieService;
+	
+	String movieGenre = "";
+	int movieRating = 0;
+	int moviePrice = 0;
+	String movieRdate = "";
+	int movieRtime = 0;
 
-	public static String MM_Chat(Model model,HttpServletRequest request,
+	public String MM_Chat(Model model,HttpServletRequest request,
  			HttpServletResponse response) {
     	 
     	String requestMessage = request.getParameter("chat");
         String chatbotMessage = "";
+        
         
         System.out.println(requestMessage);
         try {
@@ -78,7 +89,7 @@ public class ChattingService {
             }     
             System.out.println(chatbotMessage);
             
-            JSONObject o=new org.json.JSONObject(chatbotMessage);
+            JSONObject o=new JSONObject(chatbotMessage);
             JSONArray bubbles=o.getJSONArray("bubbles");
             JSONObject bubbles0=bubbles.getJSONObject(0);
             JSONObject data=bubbles0.getJSONObject("data");
@@ -86,38 +97,46 @@ public class ChattingService {
             System.out.println("--->"+description);
             
             
-            if(description.contains("어떤 장르")){
-                JSONArray slot=bubbles0.getJSONArray("slot");
-                Movie p=new Movie();
-                slot.forEach((item)->{
-                    System.out.print("item:"+item+"\t"+p+"\n");
-                    JSONObject jo=(JSONObject)item;
-                    String name=jo.getString("name");
-                    if(name.contains("커피종류")){
-                        p.setProduct_name(jo.getString("value"));
-                    }else if(name.contains("커피온도")){
-                        p.setProduct_name(jo.getString("value")+" "+p.getProduct_name());
-                    }else if(name.contains("커피수량")){
-                        String quantity_str=jo.getString("value");
-                        int quantity=0;
-                        if(quantity_str.contains("한")){
-                            quantity=1;
-                        }else if(quantity_str.contains("두")){
-                            quantity=2;
-                        }else if(quantity_str.contains("세")){
-                            quantity=3;
-                        }else if(quantity_str.contains("네")){
-                            quantity=4;
-                        }else if(quantity_str.contains("다섯")){
-                            quantity=5;
-                        }else{
-                            System.out.println("커피수량 입력 오류");
-                        }
-                        p.setQuantity(quantity);                        
-                    }
-                });//end foreach
-                productList.add(p);
-            }
+            JSONArray slot=bubbles0.getJSONArray("slot");
+            
+            
+            System.out.println(slot.toString());
+            slot.forEach((item)->{
+                System.out.print("item:"+item+"\n");
+                JSONObject jo=(JSONObject)item;
+                String name=jo.getString("name");
+                if(name.equals("장르")) {
+                	movieGenre = jo.getString("value");
+                }else if(name.equals("평점")) {
+                	if(jo.getString("value").equals("")) {
+                		movieRating = 0;
+                	}else {
+                		String[] split = jo.getString("value").split("점");
+                		movieRating = Integer.parseInt(split[0]);
+                	}
+                }else if(name.equals("가격")) {
+                	if(jo.getString("value").equals("")) {
+                		moviePrice = 0;
+                	}else {
+                		String[] split = jo.getString("value").split("원");
+                		moviePrice = Integer.parseInt(split[0]);
+                	}
+                }else if(name.equals("개봉일")) {
+                	String[] split = jo.getString("value").split("년");
+                	movieRdate = split[0];
+                }else if(name.equals("러닝타임")) {
+                	if(jo.getString("value").equals("")) {
+                		movieRtime = 0;
+                	}else {
+                		String[] split = jo.getString("value").split("분");
+                		movieRtime = Integer.parseInt(split[0]);
+                	}
+                }
+                
+            });//end foreach
+            
+            System.out.println(movieGenre+" "+Integer.toString(movieRating)+" "+Integer.toString(moviePrice)+" "+movieRdate+" "+ Integer.toString(movieRtime));
+            movieService.movieFilter(model, movieGenre, movieRating, moviePrice, movieRdate, movieRtime);
             return description;
         } catch (Exception e) {
             System.out.println(e);
@@ -196,5 +215,5 @@ public class ChattingService {
 
     }
     
-
+    
 }

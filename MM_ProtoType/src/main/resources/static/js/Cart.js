@@ -4,7 +4,7 @@ $(document).ready(function(){
 	
 		var index = $(this).attr("id");
 		
-		var movieTitle=$('.movieTitle').eq(index).text();	
+		var movieTitle=$('.movieTitle').eq(index).text();
 		
 	$.post("cartInsert",
 		{			   
