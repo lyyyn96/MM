@@ -1,52 +1,5 @@
 //검색
 
-/*var isEntered = false;
-
-$(document).ready(function(){ 
-	$("#btn-chat").click(function(){
-		
-		var chat=$("#btn-input").val();
-
-			$.get("chat",{
-				chat:chat
-				
-				},function(data){		  
-					//location.href="home";	
-				}		   
-			);
-			
-			isEntered = true;
-			
-			if (isEntered) {
-			      isEntered = false;
-			      document.querySelector("#btn-input").value = '';
-			}
-	});
-	
-	$("#btn-input").keyup(function(e){
-		if(e.keyCode == 13){
-			var chat=$("#btn-input").val();
-
-			$.get("chat",{
-				chat:chat
-				
-				},function(data){		  
-					//location.href="home";	
-					}		   
-				);
-			
-			isEntered = true;
-			
-			if (isEntered) {
-			      isEntered = false;
-			      document.querySelector("#btn-input").value = '';
-			}
-		}
-	});
-
-});
-
-*/
 $(document).ready(
 		function() {
 			var me = {};
@@ -141,6 +94,7 @@ $(document).ready(
 					var text = $(this).val();
 					if (text !== "") {
 						insertChat("me", text);
+						/*$(".message-box").scrollTop($(".message-box")[0].scrollHeight);*/
 						$(this).val('');
 					}
 
@@ -155,6 +109,8 @@ $(document).ready(
 						if (text !== "") {
 							insertChat("mm", text, 15);
 							insertMovie(movies, posters, 15);
+							/*$(".message-box").scrollTop($(".message-box")[0].scrollHeight);*/
+				            $(".message-box").animate({scrollTop: '9999999999'}, 100);
 								
 						}
 					});
@@ -165,3 +121,58 @@ $(document).ready(
 			insertChat("mm", "안녕하세요. 취향에 맞는 영화를 찾아주는 MM입니다.\n\n'영화 추천', '취향에 맞는 영화' 등을 입력해서 취향에 맞는 영화를 찾아보세요.\n\n원하는 영화 결과가 없을 경우 채팅창에 '다시'를 입력 해 주세요.", 0);
 
 		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var isEntered = false;
+$(document).ready(function(){ 
+	$("#btn-chat").click(function(){
+		
+		var chat=$("#btn-input").val();
+			$.get("chat",{
+				chat:chat
+				
+				},function(data){		  
+					//location.href="home";	
+				}		   
+			);
+			
+			isEntered = true;
+			
+			if (isEntered) {
+			      isEntered = false;
+			      document.querySelector("#btn-input").value = '';
+			}
+	});
+	
+	$("#btn-input").keyup(function(e){
+		if(e.keyCode == 13){
+			var chat=$("#btn-input").val();
+			$.get("chat",{
+				chat:chat
+				
+				},function(data){		  
+					//location.href="home";	
+					}		   
+				);
+			
+			isEntered = true;
+			
+			if (isEntered) {
+			      isEntered = false;
+			      document.querySelector("#btn-input").value = '';
+			}
+		}
+	});
+});
+*/
