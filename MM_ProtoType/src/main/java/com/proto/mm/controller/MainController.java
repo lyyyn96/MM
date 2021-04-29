@@ -43,20 +43,6 @@ public class MainController{
 		// 세션을 체크해서 로그인 상태인지 확인
 		mainService.signInCheck(model, request, response);
 		mainService.showSelectedGenre(model, request, response);
-		
-		/*HttpSession session=request.getSession();
-		List<Movie> movies = (List<Movie>) session.getAttribute("movies");
-		if(movies != null)
-		{
-			for(Movie movie : movies) {
-				System.out.println(movie.toString());
-			}
-		}
-		if(session.getAttribute("chat") != null && !(movies == null || movies.isEmpty())) {
-			model.addAttribute("movies",movies);		
-		}else {		
-			mainService.showSelectedGenre(model, request, response);
-		}*/
 	
 		return "home";
 	}

@@ -31,18 +31,11 @@ public class ChattingController {
 	public String chat(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
 		mainService.signInCheck(model, request, response);
-		String responseMessage = chattingService.MM_Chat(model, request, response);
+		String json = chattingService.MM_Chat(model, request, response);
 		
-<<<<<<< HEAD
-		model.addAttribute("response",responseMessage);
-		
-		HttpSession session=request.getSession();
-		session.setAttribute("chat",responseMessage);
-		
-		return "home";
-=======
-		return responseMessage;
->>>>>>> 80fb1d8ead8981d5952c6d48c98357385d3c07ac
+		System.out.println(json);
+
+		return json;
 	}
 	
 }

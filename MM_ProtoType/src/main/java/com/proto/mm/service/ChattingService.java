@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.proto.mm.model.Movie;
+import com.proto.mm.model.Poster;
 
 @Service
 public class ChattingService {
@@ -31,6 +32,9 @@ public class ChattingService {
 
 	@Autowired
 	MovieService movieService;
+	
+	@Autowired
+	private PosterService posterService;
 
 	String movieGenre = "";
 	int movieRating = 0;
@@ -113,6 +117,9 @@ public class ChattingService {
 			JSONObject data = bubbles0.getJSONObject("data");
 			String description = (String) data.get("description");
 			System.out.println("--->" + description);
+			
+			JSONObject json = new JSONObject();
+			json.put("chatMsg", description);
 
 			if (!(requestMessage.contains("영화") || requestMessage.contains("추천") || requestMessage.contains("다시"))) {
 				JSONArray slot = bubbles0.getJSONArray("slot");
@@ -156,8 +163,7 @@ public class ChattingService {
 						+ " " + movieRdate + " " + Integer.toString(movieRtime));
 				model = movieService.movieFilter(model, movieGenre, movieRating, moviePrice, movieRdate, movieRtime);
 				List<Movie> movies = (List<Movie>) model.getAttribute("movies");
-				HttpSession session=request.getSession();
-				session.setAttribute("movies",movies);
+								
 
 				if (movies == null || movies.isEmpty()) {
 					message = getReqMessage("다시");
@@ -176,14 +182,20 @@ public class ChattingService {
 					wr.flush();
 					wr.close();
 					responseCode = con.getResponseCode();
-					System.out.println("죄송합니다.\n" + "원하시는 조건의 영화를 찾지 못했습니다.\n"
+					json.put("chatMsg", "죄송합니다.\n" + "원하시는 조건의 영화를 찾지 못했습니다.\n"
 							+ "'영화 추천', '취향에 맞는 영화' 등을 입력해서 취향에 맞는 영화를 다시 찾아보세요.\n");
-					return "죄송합니다.\n" + "원하시는 조건의 영화를 찾지 못했습니다.\n"
-							+ "'영화 추천', '취향에 맞는 영화' 등을 입력해서 취향에 맞는 영화를 다시 찾아보세요.\n";
+				}else {
+					JSONArray jsonArray = new JSONArray(movies.toArray());	
+					json.put("movies", movies);
+					
+					model = posterService.showPosterResult(model);
+					List<Poster> posters = (List<Poster>) model.getAttribute("posters");
+					jsonArray = new JSONArray(posters.toArray());
+					json.put("posters", posters);
 				}
 			}
-
-			return description;
+			
+			return json.toString();
 		} catch (Exception e) {
 			System.out.println(e);
 			return "죄송합니다. 다시 입력해주세요";
