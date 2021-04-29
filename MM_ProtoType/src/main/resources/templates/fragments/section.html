@@ -60,7 +60,7 @@
 						                <button class="movieDetailBtn" type="submit" name="movieDetailBtn">자세히 보기</button>
 					                </form>
 					                	<br>
-						           <div> <button class="cartInsertBtn" th:classappend="${movieStat.index}" name="cartInsertBtn">담기</button></div>
+						           <div> <button class="cartInsertBtn" th:attrappend="id=${movieStat.index}" name="cartInsertBtn">담기</button></div>
 						            	<br>
 								</div>
 			                </span>
@@ -94,9 +94,9 @@
 			                <p th:text="'상영시간 : ' + ${movie.movieRtime}"></p>
 			                <p th:text="'가격 : ' + ${movie.moviePrice}"></p> 
 			                <p th:text="'줄거리 : ' + ${movie.movieStory}"></p>
-			                <div><button class="0" name="cartInsertBtn">담기</button></div>
+			                <div><button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=0" name="cartInsertBtn">담기</button></div>
 				                <br>
-			                <div><input type="button" value="이전 페이지" onClick="history.go(-1)"> </div>
+			                <div><input class="btn btn-secondary my-2 my-sm-0" type="button" value="이전 페이지" onClick="history.go(-1)"> </div>
 			              	    <br>	
 			              <!-- </div> -->
 			            </div>
