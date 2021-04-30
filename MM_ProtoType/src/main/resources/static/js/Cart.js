@@ -43,17 +43,17 @@ $(document).ready(function(){
 	$("button[name=movieOrderBtn]").click(function(){ 
 		var index = $(this).attr("id");
 		var movieTitle=$('.movieTitle').eq(index).text();
-		$.post("orderInsert",
+		$.post("kakaoPay",
 			{			   
 				movieTitle:movieTitle,
 			},
 			function(data){
-					if(data != "이미 구매한 영화 입니다."){
-						alert(data);
-					}else{
-						alert(data);
-						alert("장바구니에서 삭제되었습니다.");
-					}
+				if(data == "이미 구매한 영화 입니다."){
+					alert(data);
+					location.href = "cart";
+				}else{
+					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=500');
+				}
 			});
 		
 	});
