@@ -1,6 +1,6 @@
 // 장바구니 추가
 $(document).ready(function(){
-	$("button[name=cartInsertBtn]").click(function(){ 
+	$(document).on("click","button[name=cartInsertBtn]",function(){ 
 	
 		var index = $(this).attr("id");
 		

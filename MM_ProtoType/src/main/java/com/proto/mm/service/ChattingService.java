@@ -182,15 +182,12 @@ public class ChattingService {
 					wr.flush();
 					wr.close();
 					responseCode = con.getResponseCode();
-					json.put("chatMsg", "죄송합니다.\n" + "원하시는 조건의 영화를 찾지 못했습니다.\n"
-							+ "'영화 추천', '취향에 맞는 영화' 등을 입력해서 취향에 맞는 영화를 다시 찾아보세요.\n");
-				}else {
-					JSONArray jsonArray = new JSONArray(movies.toArray());	
+					json.put("chatMsg", "죄송합니다.<br>" + "원하시는 조건의 영화를 찾지 못했습니다.<br><br>"
+							+ "'영화 추천', '취향에 맞는 영화' 등을 입력해서 취향에 맞는 영화를 다시 찾아보세요.");
+				}else {	
 					json.put("movies", movies);
-					
 					model = posterService.showPosterResult(model);
 					List<Poster> posters = (List<Poster>) model.getAttribute("posters");
-					jsonArray = new JSONArray(posters.toArray());
 					json.put("posters", posters);
 				}
 			}
