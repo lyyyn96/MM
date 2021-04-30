@@ -15,7 +15,7 @@ import com.proto.mm.service.MainService;
 import com.proto.mm.service.OrdersService;
 
 @Controller
-public class KaKaoPayController {
+public class KakaoPayController {
 	    @Autowired
 	    private KakaoPayService kakaoPayService;
 	    

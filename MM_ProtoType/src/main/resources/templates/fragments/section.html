@@ -36,7 +36,7 @@
 			
 			<div id="movie_section" th:fragment="movie_section">
     			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 취향저격 영화'"> User님의 취향저격 영화</div>
-    			<div class="movie-box">
+    			<span class="movie-box">
 				<span th:each="movie : ${movies}">	
                			
 			          <div class="col-lg-4 col-md-6 mb-4">
@@ -52,9 +52,9 @@
 
 			                   </h4>
 
-			                <span th:each="poster : ${posters}">
-			                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
-			                  	<div class = "image_overlay image_overlay_blur">
+			                <span th:if="${movie.movieCode == poster.movieCode}" th:each="poster : ${posters}">
+			                  	<img  id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
+			                  	<div  class = "image_overlay image_overlay_blur">
 									<div class = "image_movieStory" th:text="${movie.movieStory}"></div>
 									<br><br><br>
 									<form method="get" action="movieDetail">
@@ -75,7 +75,7 @@
 		            </div>
 		            
 				</span>
-				</div>
+				</span>
 			</div>
 			
 			<div id="movieDetail_section" th:fragment="movieDetail_section">
@@ -96,7 +96,7 @@
 			                <p th:text="'상영시간 : ' + ${movie.movieRtime}"></p>
 			                <p th:text="'가격 : ' + ${movie.moviePrice}"></p> 
 			                <p th:text="'줄거리 : ' + ${movie.movieStory}"></p>
-			                <div><button class="0" name="cartInsertBtn">담기</button></div>
+			                <div><button id="0" name="cartInsertBtn">담기</button></div>
 				                <br>
 			                <div><input type="button" value="이전 페이지" onClick="history.go(-1)"> </div>
 			              	    <br>	
