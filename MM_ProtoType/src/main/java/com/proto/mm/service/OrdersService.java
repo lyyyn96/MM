@@ -14,10 +14,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.proto.mm.model.Cart;
 import com.proto.mm.model.KakaoPayApproval;
 import com.proto.mm.model.Member;
 import com.proto.mm.model.Movie;
 import com.proto.mm.model.Orders;
+import com.proto.mm.repository.CartRepository;
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.OrdersRepository;
 
@@ -30,6 +32,12 @@ public class OrdersService {
 	
 	@Autowired
 	private MovieRepository movieRepository;
+	
+	@Autowired
+	private CartRepository cartRepository;
+	
+	@Autowired
+	CartService cartService;
 	
 	
 	public Model showOrder(Model model,HttpServletRequest request,
@@ -98,7 +106,8 @@ public class OrdersService {
 		Orders order = new Orders(orderCount, orderMethod, orderDate, memCount, movieCode, "0");
 		
 		orderRepository.save(order);
-		
+		Cart cart = cartRepository.findByMovieCodeAndMemCount(movieCode, memCount);
+  	  	cartService.cartDelete(cart);
 	}
 
 	public Orders orderCheck(HttpServletRequest request, HttpServletResponse response) {

@@ -9,7 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.proto.mm.model.Cart;
+import com.proto.mm.service.CartService;
 import com.proto.mm.service.KakaoPayService;
 import com.proto.mm.service.MainService;
 import com.proto.mm.service.OrdersService;
@@ -25,6 +28,9 @@ public class KaKaoPayController {
 	    @Autowired
 	    private OrdersService ordersService;
 	    
+	    @Autowired
+		CartService cartService;
+	    
 	    
 	    @GetMapping("/kakaoPay")
 	    public void kakaoPayGet() {
@@ -32,9 +38,15 @@ public class KaKaoPayController {
 	    }
 	    
 	    @PostMapping("/kakaoPay")
+	    @ResponseBody
 	    public String kakaoPay(Model model, HttpServletRequest request, HttpServletResponse response) {
 	    	mainService.signInCheck(model, request, response);
-	        return "redirect:" + kakaoPayService.kakaoPayReady(model, request, response);
+	    	if(ordersService.orderCheck(request, response) != null) {
+	    		Cart cart = cartService.findCartMovie(request, response);
+				cartService.cartDelete(cart);
+				return "이미 구매한 영화 입니다.";
+			}
+	        return kakaoPayService.kakaoPayReady(model, request, response);
 	 
 	    }
 	    
@@ -42,16 +54,17 @@ public class KaKaoPayController {
 	    public String kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model, HttpServletRequest request, HttpServletResponse response) {
 	    	  model.addAttribute("info", kakaoPayService.kakaoPayInfo(pg_token, model, request, response));
 	    	  ordersService.orderInsert(model, request, response);
+	    	  
 	    	  return "kakaoPaySuccess";
 	    }
 	    
 	    @GetMapping("/kakaoPayCancel")
 	    public String kakaoPayCancel(Model model, HttpServletRequest request, HttpServletResponse response) {
-	        return "redirect:cart";
+	        return "kakaoPayCancle";
 	    }
 	    
 	    @GetMapping("/kakaoPaySuccessFail")
 	    public String kakaoPaySuccessFail(Model model, HttpServletRequest request, HttpServletResponse response) {
-	        return "redirect:cart";
+	        return "kakaoPayCancle";
 	    }
 	}
