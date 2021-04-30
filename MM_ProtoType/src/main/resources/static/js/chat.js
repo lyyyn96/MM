@@ -24,14 +24,14 @@ $(document).ready(
 
 				if (who != "me") {
 
-					control = '<li style="width:100%">'
+					control = '<li style="width:70%">'
 							+ '<div class="msj macro">'
 							+ '<div class="text text-r">' + '<br/>' + '<p>'
-							+ text + '</p>' + '<p><small>' + date
+							+ text + '</p>' + '<p style="text-align:left;"><small>' + date
 							+ '</small></p>' + '<br/>' + '</div>' + '</div>'
 							+ '</li>';
 				} else {
-					control = '<li style="width:100%;">'
+					control = '<li style="width:70%;">'
 							+ '<div class="msj-rta macro">'
 							+ '<div class="text text-l">' + '<br/>' + '<p>'
 							+ text + '</p>' + '<p><small>' + date
@@ -50,35 +50,39 @@ $(document).ready(
 			function insertMovie(movies, posters, time) {
 				var control = "";
 				for(var i=0; i<movies.length; i++){
-					control += '<div class="col-lg-4 col-md-6 mb-4">'+
+					control += '<span>'
+							+'<div class="col-lg-4 col-md-6 mb-4">'
 		            		+'<div align="center" class="card h-100">'
-		            		+'<div class="card-header text-white bg-secondary"><h4 th:text="'+movies[i].movieTitle+'" class="movieTitle"></h4></div>'
+		            		+'<div class="card-header text-white bg-secondary">'
+		            		+'<h4 class="movieTitle">'+movies[i].movieTitle+'</h4></div>'
 		            		+'<div class="card-body">'
-		            		+'<p th:text="\'장르 : ' + movies[i].movieGenre+'"></p>'
-		            		+'<p th:text="\'평점 : ' + movies[i].movieRating +'"></p>'
-		                  	+'<img id="poster" th:alt="'+movies[i].movieTitle+ ' 포스터" th:src="/poster/'+ posters[i].posterPath + '/'+'"  width="25" height="25%"/>'
+		            		+'<p> 장르 : ' + movies[i].movieGenre + '</p>'
+		            		+'<p> 평점 : ' + movies[i].movieRating +'</p>'
+		            		+'<span>'
+		                  	+'<img id="poster" alt="'+movies[i].movieTitle+ ' 포스터" src="/poster/'+ posters[i].posterPath + '/'+'"  width="25" height="25%"/>'
 		                  	+'<div class = "image_overlay image_overlay_blur">'
-							+'<div class = "image_movieStory" th:text="'+movies[i].movieStory+'"></div>'
+							+'<div class = "image_movieStory" >'+movies[i].movieStory+'</div>'
 							+'<br><br><br>'
 							+'<form method="get" action="movieDetail">'
-					        +'<input type="hidden" name="movieTitle" th:value="'+ movies[i].movieTitle+ '">'
+					        +'<input type="hidden" name="movieTitle" value="'+ movies[i].movieTitle+ '">'
 					        +'<button class="movieDetailBtn" type="submit" name="movieDetailBtn">자세히 보기</button>'
 				            +'</form>'
 				            +'<br>'
 					        +'<div> <button class="cartInsertBtn" th:classappend="'+i+'" name="cartInsertBtn">담기</button></div>'
 					        +'<br>'
 							+'</div>'
+							+'</span>'
 							+'<br><br>'
-							+'<p th:text="'+new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(movies[i].moviePrice)+'"></p>'
+							+'<p>'+new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(movies[i].moviePrice)+'</p>'
 			                +'<br>'
 			                +'</div>'
 			                +'</div>'
-			                +'</div>';
+			                +'</div>'
+			                +'</span>';
 				}
 
 				setTimeout(function() {
 					if(control != ""){
-						alert(control);
 						$(".movie-box").html(control);
 					}
 
