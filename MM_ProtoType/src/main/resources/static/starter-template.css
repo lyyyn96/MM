@@ -130,6 +130,10 @@ body {
     background: linear-gradient(to right, #232526, #414345);
 }
 
+#signOutBtn{
+	margin-top:8px! important;
+}
+
 div.h-100{
 	border-radius: 0px! important;
 	background: transparent! important;
