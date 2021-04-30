@@ -54,18 +54,20 @@
     margin-bottom:-7px;
     margin-top:auto;
 }
-.text-l{
+
+.text-r{
     float:left;
     padding-right:10px;
     padding-left:20px;
     color: white! important;
 }
-.text-l > p:last-of-type{
+.text-r > p:last-of-type{
 	color: white! important;
 }
-.text-r{
+.text-l{
     float:right;
     padding-left:10px;
+
 }
 .avatar{
     display:flex;
@@ -78,7 +80,9 @@
 .macro{
     margin-top:5px;
     margin-left:5px! important;
+
     margin-right:5px! important;
+
     width:100%;
     border-radius:5px;
     padding:5px;
@@ -86,8 +90,10 @@
 }
 .msj-rta{
     float:right;
+
     /*background:whitesmoke;*/
     background:	#A52A2A;
+
 }
 .msj{
     float:left;
