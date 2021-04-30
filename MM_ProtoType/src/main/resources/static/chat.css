@@ -55,16 +55,16 @@
     margin-top:auto;
 }
 
-.text-r{
+.text-l{
     float:left;
     padding-right:10px;
     padding-left:20px;
     color: white! important;
 }
-.text-r > p:last-of-type{
+.text-l > p:last-of-type{
 	color: white! important;
 }
-.text-l{
+.text-r{
     float:right;
     padding-left:10px;
 
