@@ -54,10 +54,7 @@
 			                  	<div  class = "image_overlay image_overlay_blur">
 									<div class = "image_movieStory" th:text="${movie.movieStory}"></div>
 									<br><br><br>
-									<form method="get" action="movieDetail">
-						                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
-						                <button class="movieDetailBtn" type="submit" name="movieDetailBtn">자세히 보기</button>
-					                </form>
+					                <div> <button class="movieDetailBtn" th:attrappend="id=${movieStat.index}" name="movieDetailBtn">자세히 보기</button></div>
 					                	<br>
 						           <div> <button class="cartInsertBtn" th:attrappend="id=${movieStat.index}" name="cartInsertBtn">담기</button></div>
 						            	<br>
