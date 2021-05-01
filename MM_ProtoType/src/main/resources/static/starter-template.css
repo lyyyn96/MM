@@ -1,5 +1,5 @@
 body {
-
+	background: #000! important;
 }
 
 #poster{
@@ -181,4 +181,10 @@ div {
     overflow:hidden;
     height:auto;
     display: block;
+}
+
+#pagination a {
+	display:inline-block;
+	margin-right:5px;
+	cursor:pointer;
 }

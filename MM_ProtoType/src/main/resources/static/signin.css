@@ -169,3 +169,8 @@ body {
     font-size: 3.5rem;
   }
 }
+
+.form-control{
+	background: #222222;
+	border-color: #222222;
+}

@@ -5,6 +5,9 @@ package com.proto.mm.controller;
 
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,11 +59,25 @@ public class MemberController {
 		String temp = Arrays.toString(prefer);
 		String preference = temp.replaceAll("[\\s\\[\\]]", "");
 		BigDecimal mem_count = null;
+		/*
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+			md.update(pw.getBytes());
+			String hex = String.format("%064x", new BigInteger(1, md.digest()));
+			pw=hex;
+			System.out.println("pw에 대한 해시 값: "+hex);
+		} catch (NoSuchAlgorithmException e1) {
+			e1.printStackTrace();
+		}*/
+		
 		try {
 			Member m=new Member(mem_count,id,pw,name,preference); 
 			Member result = memberService.idCheck(id);
 			if(result == null) {
+				System.out.println("여기");
 				memberService.memberInsert(m);
+				
 				return name+"님 회원가입 되셨습니다.";	
 			}else {
 				return "아이디가 중복입니다.";
@@ -69,8 +86,7 @@ public class MemberController {
 		}catch(Exception e) {
 			return e.getMessage();
 		}	
-	}	
-	
+	}
 	
 	@GetMapping("memberList")
 	public String member(Model model,HttpServletRequest request,

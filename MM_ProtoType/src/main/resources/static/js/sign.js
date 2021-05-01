@@ -408,6 +408,7 @@ $(document).ready(function(){
 				})
 				
 			}else{
+				console.log("자바스크립트");
 				$.ajax({
 					method : "POST",
 					url : "memberInsert",
@@ -429,7 +430,7 @@ $(document).ready(function(){
 							})
 						opener.parent.location.reload();
 						//window.close();
-						setTimeout(close, 2000);
+						setTimeout(close, 1500);
 						}else{
 							//alert("아이디가 중복입니다.");
 							Swal.fire({
