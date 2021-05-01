@@ -18,6 +18,7 @@
 	        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	        crossorigin="anonymous">
 	    </script>
+<<<<<<< HEAD
 	    <!-- sign Script-->
 	    <script type="text/javascript" src="js/sign.js" charset="UTF-8"></script>
 	     <!--<script type="text/javascript" src="js/movieDetail.js" charset="UTF-8"></script>-->
@@ -58,12 +59,39 @@
 	
 	    <title th:text="${title}">Movie Mentor</title>
 
+=======
+	    <!-- sign CSS & Script-->
+	    <script type="text/javascript" src="js/sign.js" charset="UTF-8"></script>
+	     <!-- Bootstrap core JavaScript -->
+ 		<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+	   
+	    <!-- Home page CSS & Script-->
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	    <link href="starter-template.css" th:href="@{/starter-template.css}" rel="stylesheet">
+	    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	
+	    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <link href="" th:href="@{/chat.css}" rel="stylesheet">
+
+
+	
+	    <title th:text="${title}">Movie Mentor</title>
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	</head>
 	
 	
 	<body>  
 	    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:fragment="menu(menu)">
+<<<<<<< HEAD
 	        <a class="navbar-brand" href="#" th:href="@{/home}">M M</a>
+=======
+	        <a class="navbar-brand" href="home">M M</a>
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
 	            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 	            <span class="navbar-toggler-icon"></span>
@@ -81,14 +109,18 @@
 	                <li class="nav-item" th:classappend="${menu} == 'memberInfo'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/memberInfo}">회원 정보 <span class="sr-only" th:if="${menu} == 'memberInfo'">(current)</span></a>
 	                </li>
+<<<<<<< HEAD
 	                 <li class="nav-item" th:classappend="${menu} == 'cart'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/cart}">장바구니 <span class="sr-only" th:if="${menu} == 'cart'">(current)</span></a>
 	                </li>
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	            </ul>
 	
 	        </div>
         	<!-- 검색 창-->	        
 	        <div>
+<<<<<<< HEAD
 	            <form class="form-inline my-2 my-lg-0" method="get" action="movieSearch">
 	                <input class="form-control mr-sm-2" id= "autocompleteText" name="movieTitle" type="text" placeholder="Search" aria-label="Search">
 	                <button class="btn btn-secondary my-2 my-sm-0" type="submit" value="Search">Search</button>
@@ -96,6 +128,14 @@
 	        </div>
 
 			
+=======
+	            <form class="form-inline my-2 my-lg-0">
+	                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+	                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+	            </form>
+	        </div>
+	
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	        <!-- 로그인 상태 표시 칸-->
 	        <ul class="navbar-nav mr-auto">
 	            <li class="nav-item" th:if="${logined}">
@@ -110,6 +150,10 @@
 	            </li>
 	        </ul>
 	    </nav>     
+<<<<<<< HEAD
            
+=======
+	                    
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	</body>  
 </html>
