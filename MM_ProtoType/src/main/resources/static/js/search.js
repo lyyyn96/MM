@@ -118,16 +118,32 @@ $(document).ready(function(){
 	
 	$("#searchBtn").click(function(){
 		var movieTitle=$("input[name=movieTitle]").val();
+		var loc = window.location.href;
+		loc = loc.split('/').reverse()[0];
+		
 		if(movieTitle != "" && movieTitle != null){
 			$.get("movieSearch",{
 				movieTitle : movieTitle,
+				location : loc
 			}, function(data) {
 				$("input[name=movieTitle]").val('');
 				var obj=JSON.parse(data);
 				var movies = obj.movies;
 				var posters = obj.posters;
 			
-				searchMovie(movies, posters, 15);
+				if (movies.length != 0){
+					if(loc != "home"){
+						location.href="home";
+					}else
+						searchMovie(movies, posters, 15);
+				}else{
+					Swal.fire({
+						  title: "찾으시는 영화가 없습니다.",
+						  icon: 'warning',
+						  showConfirmButton: false,
+						  timer: 2000
+					})
+				}
 			});
 		}
 	});
@@ -135,18 +151,20 @@ $(document).ready(function(){
 	$("input[name=movieTitle]").on("keyup", function(e) {
 		if (e.which == 13) {
 			var movieTitle=$("input[name=movieTitle]").val();
+			var loc = window.location.href;
+			loc = loc.split('/').reverse()[0];
+			
 			if(movieTitle != "" && movieTitle != null){
 				$.get("movieSearch",{
 					movieTitle : movieTitle,
+					location : loc
 				}, function(data) {
 					$("input[name=movieTitle]").val('');
 					var obj=JSON.parse(data);
 					var movies = obj.movies;
 					var posters = obj.posters;
 					if (movies.length != 0){
-						var string = window.location.href;
-						string = string.split('/').reverse()[0];
-						if(string != "home"){
+						if(loc != "home"){
 							location.href="home";
 						}else
 							searchMovie(movies, posters, 15);

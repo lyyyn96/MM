@@ -48,11 +48,12 @@ public class MainController{
 		mainService.signInCheck(model, request, response);
 		HttpSession session = request.getSession();
 		String movieTitle = (String) session.getAttribute("searched");
-		if(session.getAttribute("searched") == null)
+		System.out.println(movieTitle);
+		if(movieTitle == null)
 			mainService.showSelectedGenre(model, request, response);
 		else {
-			session.setAttribute("searched", null);
 			movieService.showMovieByMovieTitle(model,movieTitle);
+			session.setAttribute("searched", null);
 		}
 	
 		return "home";

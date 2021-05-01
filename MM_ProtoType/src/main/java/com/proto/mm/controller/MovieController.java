@@ -104,6 +104,7 @@ public class MovieController {
 		mainService.signInCheck(model, request, response);
 		
 		String movieTitle=request.getParameter("movieTitle");
+		String location=request.getParameter("location");
 		System.out.println(movieTitle);
 		JSONObject json = new JSONObject();
 		if(movieTitle != "") {
@@ -114,7 +115,8 @@ public class MovieController {
 			List<Poster> posters = (List<Poster>) model.getAttribute("posters");			
 			json.put("posters", posters);
 			
-			if (movies.size() != 0) {
+			if (movies.size() != 0 && !location.equals("home")) {
+				System.out.println(location);
 				HttpSession session = request.getSession();
 				session.setAttribute("searched", movieTitle);
 				model.addAttribute("searched", movieTitle); // model.addAttribute("key","value")
