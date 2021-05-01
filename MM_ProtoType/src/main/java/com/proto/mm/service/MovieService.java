@@ -60,15 +60,11 @@ public class MovieService {
 		return model;
 	}
 
-	public Model showMovieByMovieTitle(Model model,HttpServletRequest request,
-			HttpServletResponse response) {
+	public Model showMovieByMovieTitle(Model model, String movieTitle) {
 		try {
 			System.out.println("영화검색 서비스 호출");
-			String movieTitle = request.getParameter("movieTitle");
 			List<Movie> movies = movieRepository.findByMovieTitleContains(movieTitle, Sort.by(Sort.Direction.ASC, "movieCode"));
-			HttpSession session = request.getSession();
-			session.setAttribute("searched", "searched");
-			model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
+			
 			model.addAttribute("movies", movies);
 			posterService.showPosterResult(model);
 			System.out.println(movies.toString());

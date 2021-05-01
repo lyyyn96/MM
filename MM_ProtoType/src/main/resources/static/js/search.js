@@ -107,17 +107,7 @@ $(document).ready(function(){
 
 		setTimeout(function() {
 			if(control != ""){
-				var string = window.location.href;
-				string = string.split('/').reverse()[0];
-				if(string != "home"){
-					location.href="home";
-					//alert(control);
-					$(".movie-box").html(control);
-				}else{
-					$(".movie-box").html(control);
-				}
-				
-				
+				$(".movie-box").html(control);	
 			}
 
 		}, time);
@@ -139,8 +129,6 @@ $(document).ready(function(){
 			
 				searchMovie(movies, posters, 15);
 			});
-		}else{
-			//alert();
 		}
 	});
 	
@@ -155,11 +143,24 @@ $(document).ready(function(){
 					var obj=JSON.parse(data);
 					var movies = obj.movies;
 					var posters = obj.posters;
+					if (movies.length != 0){
+						var string = window.location.href;
+						string = string.split('/').reverse()[0];
+						if(string != "home"){
+							location.href="home";
+						}else
+							searchMovie(movies, posters, 15);
+					}else{
+						Swal.fire({
+							  title: "찾으시는 영화가 없습니다.",
+							  icon: 'warning',
+							  showConfirmButton: false,
+							  timer: 2000
+						})
+					}
 				
-					searchMovie(movies, posters, 15);
+					
 				});
-			}else{
-				//alert();
 			}
 			}
 		});

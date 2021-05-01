@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.proto.mm.model.Member;
 import com.proto.mm.service.MainService;
 import com.proto.mm.service.MemberService;
+import com.proto.mm.service.MovieService;
 
 
 
@@ -27,6 +28,9 @@ public class MainController{
 	
 	@Autowired
 	MainService mainService;
+	
+	@Autowired
+	MovieService movieService;
 	
 	@GetMapping
 	public String index(Model model,HttpServletRequest request,
@@ -43,11 +47,13 @@ public class MainController{
 		// 세션을 체크해서 로그인 상태인지 확인
 		mainService.signInCheck(model, request, response);
 		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("searched"));
-		if(session.getAttribute("searched") != "searched")
+		String movieTitle = (String) session.getAttribute("searched");
+		if(session.getAttribute("searched") == null)
 			mainService.showSelectedGenre(model, request, response);
-		else
+		else {
 			session.setAttribute("searched", null);
+			movieService.showMovieByMovieTitle(model,movieTitle);
+		}
 	
 		return "home";
 	}

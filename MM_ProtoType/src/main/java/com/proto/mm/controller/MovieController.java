@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.JSONObject;
@@ -106,12 +107,18 @@ public class MovieController {
 		System.out.println(movieTitle);
 		JSONObject json = new JSONObject();
 		if(movieTitle != "") {
-			movieService.showMovieByMovieTitle(model,request, response);
+			movieService.showMovieByMovieTitle(model,movieTitle);
 			List<Movie> movies = (List<Movie>) model.getAttribute("movies");
 			json.put("movies", movies);
 
 			List<Poster> posters = (List<Poster>) model.getAttribute("posters");			
 			json.put("posters", posters);
+			
+			if (movies.size() != 0) {
+				HttpSession session = request.getSession();
+				session.setAttribute("searched", movieTitle);
+				model.addAttribute("searched", movieTitle); // model.addAttribute("key","value")
+			}
 		}
 		
 		System.out.println(json);
