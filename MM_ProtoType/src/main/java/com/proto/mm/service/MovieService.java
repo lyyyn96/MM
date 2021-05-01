@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -59,13 +60,11 @@ public class MovieService {
 		return model;
 	}
 
-	public Model showMovieByMovieTitle(Model model,HttpServletRequest request,
-			HttpServletResponse response) {
+	public Model showMovieByMovieTitle(Model model, String movieTitle) {
 		try {
 			System.out.println("영화검색 서비스 호출");
-			String movieTitle = request.getParameter("movieTitle");
 			List<Movie> movies = movieRepository.findByMovieTitleContains(movieTitle, Sort.by(Sort.Direction.ASC, "movieCode"));
-			model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
+			
 			model.addAttribute("movies", movies);
 			posterService.showPosterResult(model);
 			System.out.println(movies.toString());
