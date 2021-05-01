@@ -68,7 +68,7 @@ $(document).ready(
 					        +'<button class="movieDetailBtn" type="submit" name="movieDetailBtn">자세히 보기</button>'
 				            +'</form>'
 				            +'<br>'
-					        +'<div> <button class="cartInsertBtn" th:classappend="'+i+'" name="cartInsertBtn">담기</button></div>'
+					        +'<div> <button class="cartInsertBtn" id="'+i+'" name="cartInsertBtn">담기</button></div>'
 					        +'<br>'
 							+'</div>'
 							+'</span>'

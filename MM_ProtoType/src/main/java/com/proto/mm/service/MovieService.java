@@ -4,7 +4,6 @@ package com.proto.mm.service;
 import java.math.BigDecimal;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -21,7 +20,6 @@ import org.springframework.ui.Model;
 
 import com.proto.mm.model.Movie;
 import com.proto.mm.repository.MovieRepository;
-import com.proto.mm.repository.PosterRepository;
 
 @Service
 public class MovieService {

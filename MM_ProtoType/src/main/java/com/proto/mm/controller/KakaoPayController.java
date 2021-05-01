@@ -1,5 +1,7 @@
 package com.proto.mm.controller;
 
+import java.text.ParseException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -51,20 +53,19 @@ public class KakaoPayController {
 	    }
 	    
 	    @GetMapping("/kakaoPaySuccess")
-	    public String kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model, HttpServletRequest request, HttpServletResponse response) {
+	    public String kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model, HttpServletRequest request, HttpServletResponse response) throws ParseException {
 	    	  model.addAttribute("info", kakaoPayService.kakaoPayInfo(pg_token, model, request, response));
 	    	  ordersService.orderInsert(model, request, response);
-	    	  
 	    	  return "kakaoPaySuccess";
 	    }
 	    
 	    @GetMapping("/kakaoPayCancel")
 	    public String kakaoPayCancel(Model model, HttpServletRequest request, HttpServletResponse response) {
-	        return "kakaoPayCancle";
+	        return "kakaoPayCancel";
 	    }
 	    
 	    @GetMapping("/kakaoPaySuccessFail")
 	    public String kakaoPaySuccessFail(Model model, HttpServletRequest request, HttpServletResponse response) {
-	        return "kakaoPayCancle";
+	        return "kakaoPayCancel";
 	    }
 	}

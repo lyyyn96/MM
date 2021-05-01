@@ -52,13 +52,13 @@ $(document).ready(function(){
 					alert(data);
 					location.href = "cart";
 				}else{
-					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=500');
+					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=800,height=465');
 				}
 			});
 		
 	});
 });
-
+/*
 //영화 구매 취소
 $(document).ready(function(){
 	$("#cancleBtn").click(function(){ 	
