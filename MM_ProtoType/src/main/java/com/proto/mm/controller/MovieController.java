@@ -4,20 +4,13 @@ package com.proto.mm.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
 import java.util.List;
->>>>>>> 38d9f78c40e384d74adecde1d43a1432cbc86eb1
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
-<<<<<<< HEAD
-=======
 import org.json.JSONObject;
->>>>>>> 38d9f78c40e384d74adecde1d43a1432cbc86eb1
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -120,10 +113,7 @@ public class MovieController {
 			json.put("posters", posters);
 		}
 		
-<<<<<<< HEAD
-=======
 		System.out.println(json);
->>>>>>> 38d9f78c40e384d74adecde1d43a1432cbc86eb1
 		
 		return json.toString();
 	}

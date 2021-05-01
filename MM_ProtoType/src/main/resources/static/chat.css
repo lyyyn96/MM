@@ -19,11 +19,7 @@
 }
 
 .panel{
-<<<<<<< HEAD
-    height: 90%;
-=======
     height: 95%;
->>>>>>> 38d9f78c40e384d74adecde1d43a1432cbc86eb1
     margin-bottom: 0px;
     border-radius: 0px! important;
 }
@@ -117,14 +113,9 @@
 }
 .frame{
     /* background:#2c3e5014; */
-<<<<<<< HEAD
-    background: linear-gradient(to right, #485563, #29323c);
-    height: 95.5%;
-=======
     /*background: linear-gradient(to right, #485563, #29323c);*/
     background: linear-gradient(to right, #232526, #414345);
     height: 95%;
->>>>>>> 38d9f78c40e384d74adecde1d43a1432cbc86eb1
     min-width:100%;
     margin:0;
     overflow:hidden;
