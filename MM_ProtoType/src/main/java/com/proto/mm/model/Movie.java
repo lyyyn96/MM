@@ -43,11 +43,7 @@ public class Movie {
 	private String movieRdate;
 	@NonNull
 	@Column(name = "movie_rtime")
-<<<<<<< HEAD
 	private BigDecimal movieRtime;
-=======
-	private String movieRtime;
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	@NonNull
 	@Column(name = "movie_price")
 	private BigDecimal moviePrice;

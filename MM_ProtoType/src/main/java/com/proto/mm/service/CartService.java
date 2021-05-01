@@ -27,14 +27,10 @@ public class CartService {
 	
 	@Autowired
 	private MovieRepository movieRepository;
-<<<<<<< HEAD
 	
 	@Autowired
 	private PosterService posterService;
 	
-=======
-
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	public Model showCartList(Model model,
 			HttpServletRequest request, HttpServletResponse response) {
 		
@@ -44,11 +40,7 @@ public class CartService {
 		
 		// 세션이 있으면 가져오고 없더라도 생성하지 않음
 		HttpSession session = request.getSession(false);
-<<<<<<< HEAD
 		 
-=======
-		
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		try {
 			// 세션에 로그인 된 멤버의 memCount 가져오기
 			Member member = (Member) session.getAttribute("member");
@@ -68,10 +60,7 @@ public class CartService {
 			model.addAttribute("movies", cartMovies);
 			System.out.println("카트 내 영화 목록 가져오기 성공");
 			
-<<<<<<< HEAD
 			posterService.showPosterResult(model);
-=======
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		
 
 		}catch(NullPointerException e) {
@@ -111,10 +100,7 @@ public class CartService {
 	
 	public Cart cartCheck(HttpServletRequest request,
 			HttpServletResponse response) {
-<<<<<<< HEAD
 		System.out.println("장바구니 영화 확인");
-=======
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		HttpSession session = request.getSession(false);
 		Member member = (Member) session.getAttribute("member");
 		BigDecimal memCount = member.getMemCount();
@@ -123,11 +109,7 @@ public class CartService {
 		Movie movie = movieRepository.findByMovieTitle(movie_title);
 		BigDecimal movieCode = movie.getMovieCode();
 		
-<<<<<<< HEAD
 		return cartRepository.findByMovieCodeAndMemCount(movieCode,memCount);
-=======
-		return cartRepository.findByMovieCodeAndMemCount(memCount, movieCode);
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 
 		
 	}

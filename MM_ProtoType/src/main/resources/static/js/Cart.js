@@ -1,25 +1,16 @@
 // 장바구니 추가
 $(document).ready(function(){
-<<<<<<< HEAD
 	$(document).on("click","button[name=cartInsertBtn]",function(){ 
 	
 		var index = $(this).attr("id");
 		
 		var movieTitle=$('.movieTitle').eq(index).text();
-=======
-	$("button[name=cartInsertBtn]").click(function(){ 
-	
-		var index = $(this).attr("class");
-		
-		var movieTitle=$('.movieTitle').eq(index).text();	
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		
 	$.post("cartInsert",
 		{			   
 			movieTitle:movieTitle
 		},
 		function(data){
-<<<<<<< HEAD
 			 	//alert(data);
 				//swal.fire(data);
 			Swal.fire({
@@ -28,9 +19,6 @@ $(document).ready(function(){
 				  showConfirmButton: false,
 				  timer: 2000
 			})
-=======
-			 	alert(data);
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			});
 		});
 });
@@ -40,24 +28,16 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('button[name=cartDeleteBtn]').click(function(){ 
 		
-<<<<<<< HEAD
 		var index = $(this).attr("id");
 		
 		var movieTitle=$('.movieTitle').eq(index).text();
 	/*	
-=======
-		var index = $(this).attr("class");
-		
-		var movieTitle=$('.movieTitle').eq(index).text();
-		
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	if (confirm('정말 삭제하시겠습니까?')){
 		$.post("cartDelete",
 				{
 				   movieTitle:movieTitle
 				},
 				function(data){		  
-<<<<<<< HEAD
 					alert(data);
 					location.reload();	
 				});
@@ -109,27 +89,17 @@ $(document).ready(function(){
 					swal.fire(data);
 					location.href = "cart";
 				}else{
-					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=800,height=465');
+					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=500');
 				}
 			});
 		
 	});
 });
-/*
-=======
-					alert(data);	
-					location.reload();	
-				});
-		}
-	});
-});
 
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 //영화 구매 취소
 $(document).ready(function(){
 	$("#cancleBtn").click(function(){ 	
 		var movieTitle=$('.movieTitle').text();	
-<<<<<<< HEAD
 		/*if (confirm(movieTitle + ' 구매를 취소하시겠습니까?')){
 			alert("구매가 취소되었습니다.");
 			Swal.fire({
@@ -163,20 +133,11 @@ $(document).ready(function(){
 			  }
 			})
 		
-=======
-		if (confirm(movieTitle + ' 구매를 취소하시겠습니까?')){
-			alert("구매가 취소되었습니다.");
-			location.href = "cart";
-		}
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});	
 });
 
 //영화 구매
-<<<<<<< HEAD
 /*
-=======
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 $(document).ready(function(){
 	$("#orderBtn").click(function(){ 	
 		var movieTitle=$('.movieTitle').text();	
@@ -200,19 +161,12 @@ $(document).ready(function(){
 					function(data){
 							if(data != "이미 구매한 영화 입니다."){
 								alert(data);
-<<<<<<< HEAD
 								opener.parent.location.href = "orderList";
 								window.close();
 							}else{
 								alert(data);
 								alert("장바구니에서 삭제되었습니다.");
 								window.close();
-=======
-								location.href = "orderList";
-							}else{
-								alert(data);
-								alert("장바구니에서 삭제되었습니다.");
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 								location.href = "cart";
 							}
 					});
@@ -220,27 +174,18 @@ $(document).ready(function(){
 	
 		});
 });
-<<<<<<< HEAD
 */
-=======
-
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 //영화 다운로드
 $(document).ready(function(){
 	$("button[name=downloadBtn]").click(function(){ 
 		var index = $(this).attr("id");
 		var movieTitle=$('.movieTitle').eq(index).text();
-<<<<<<< HEAD
 		/*if (confirm(movieTitle+' 를(을) 다운로드 받으시겠습니까?')){
-=======
-		if (confirm(movieTitle+' 를(을) 다운로드 받으시겠습니까?')){
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			$.post("orderDown",
 				{			   
 					movieTitle:movieTitle,
 				},
 				function(data){
-<<<<<<< HEAD
 					alert(data);
 					location.reload();	
 				});
@@ -282,12 +227,6 @@ $(document).ready(function(){
 			  }
 			})
 		
-=======
-					alert(data);	
-					location.reload();	
-				});
-		}
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});
 });
 
@@ -297,17 +236,12 @@ $(document).ready(function(){
 	$("button[name=refundBtn]").click(function(){ 	
 		var index = $(this).attr("id");
 		var movieTitle=$('.movieTitle').eq(index).text();
-<<<<<<< HEAD
 		/*if (confirm(movieTitle + ' 를(을) 정말 환불하시겠습니까?')){
-=======
-		if (confirm(movieTitle + ' 를(을) 정말 환불하시겠습니까?')){
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			$.post("orderDelete",
 					{			   
 						movieTitle:movieTitle
 					},
 					function(data){
-<<<<<<< HEAD
 						alert(data);
 						swal.fire(data);
 						location.reload();	
@@ -343,12 +277,6 @@ $(document).ready(function(){
 			  }
 			})
 		
-=======
-						alert(data);	
-						location.reload();	
-					});
-			}
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});	
 });
 

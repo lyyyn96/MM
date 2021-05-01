@@ -3,14 +3,11 @@ package com.proto.mm.service;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -27,8 +24,9 @@ import com.proto.mm.model.KakaoPayApproval;
 import com.proto.mm.model.KakaoPayReady;
 import com.proto.mm.model.Member;
 import com.proto.mm.model.Movie;
+import com.proto.mm.model.Orders;
 import com.proto.mm.repository.MovieRepository;
-import com.sun.el.parser.ParseException;
+import com.proto.mm.repository.OrdersRepository;
  
 @Service
 public class KakaoPayService {
@@ -106,7 +104,7 @@ public class KakaoPayService {
     }
     
 
-    public KakaoPayApproval kakaoPayInfo(String pg_token, Model model, HttpServletRequest request, HttpServletResponse response) throws java.text.ParseException {
+    public KakaoPayApproval kakaoPayInfo(String pg_token, Model model, HttpServletRequest request, HttpServletResponse response) {
  
 
         
@@ -139,7 +137,6 @@ public class KakaoPayService {
         params.add("partner_user_id", memName);
         params.add("pg_token", pg_token);
         params.add("total_amount", moviePrice);
-
         
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
         

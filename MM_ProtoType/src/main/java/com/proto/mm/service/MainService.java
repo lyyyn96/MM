@@ -1,9 +1,5 @@
 package com.proto.mm.service;
 
-<<<<<<< HEAD
-=======
-import java.util.HashMap;
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 import java.util.List;
 import java.util.Random;
 
@@ -22,12 +18,8 @@ import com.proto.mm.repository.MovieRepository;
 
 @Service
 public class MainService {
-<<<<<<< HEAD
 	@Autowired
 	private PosterService posterService;
-=======
-	
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	@Autowired
 	private MovieRepository movieRepository;
 	
@@ -62,15 +54,9 @@ public class MainService {
 		int selectedGenreCount = new Random().nextInt(movieGenre.length);
 		//System.out.println(selectedGenreCount+"번 째로 고른 장르");
 		
-<<<<<<< HEAD
 		List<Movie> movies = movieRepository.findTop6ByMovieGenreContains(movieGenre[selectedGenreCount], Sort.by(Sort.Direction.DESC, "movieRating"));
 		model.addAttribute("movies", movies);
 		posterService.showPosterResult(model);
-=======
-		List<Movie> movies = movieRepository.findTop9ByMovieGenreContains(movieGenre[selectedGenreCount], Sort.by(Sort.Direction.DESC, "movieRating"));
-		model.addAttribute("movies", movies);
-
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		System.out.println("영화 취향 선택에 따른 영화 목록 서비스");
 		
 		return model;

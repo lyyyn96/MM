@@ -1,5 +1,4 @@
 // 영화 자세히 보기
-<<<<<<< HEAD
 $(document).ready(function(){
 	
 	function insertMovie(movie, poster, time) {
@@ -59,25 +58,5 @@ $(document).ready(function(){
 			
 			insertMovie(movie, poster, 15);
 		});
-=======
-$(document).ready(function(){ 
-	$('button[name=movieDetailBtn]').click(function(){
-		var index = $(this).attr("class");
-		
-		var movieTitle=$('.movieTitle').eq(index).text();
-		
-		$.ajax({
-				type:"GET",
-				url:"movieDetailSearch",
-				data :{
-					movieTitle:movieTitle
-				},success : function(){
-					alert("조회성공");
-				},error : function(){
-					alert("에러발생");
-				}
-			});
-		alert("영화 자세히 보기");
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});
 });
