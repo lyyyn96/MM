@@ -1,4 +1,5 @@
 // 로그인
+<<<<<<< HEAD
 $(document).ready(function(){
 	$("#signInBtn").click(function(){
 		
@@ -6,6 +7,10 @@ $(document).ready(function(){
 		function reload() {
 			location.reload();
 		}*/
+=======
+$(document).ready(function(){ 
+	$("#signInBtn").click(function(){
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		
 		var id=$("#floatingID").val();
 		var pw=$("#floatingPassword").val();
@@ -19,6 +24,7 @@ $(document).ready(function(){
 				var obj=JSON.parse(data);			  
 			  	
 				if(obj.name){
+<<<<<<< HEAD
 				 	//alert(obj.name+ "님 환영합니다.");
 					Swal.fire({
 						  title: obj.name+"님 환영합니다.",
@@ -52,6 +58,16 @@ $(document).ready(function(){
 			  showConfirmButton: false,
 			  timer: 5000
 		})*/
+=======
+				 	alert(obj.name+ "님 환영합니다.");
+				 	location.href = "home";
+					$.cookie("logined",obj.name + "님 환영합니다.", {path:'/'});	
+				}else{
+					alert(obj.msg);
+				}	
+			});
+		alert("무비 멘토 접속 중");
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});
 });
 
@@ -68,6 +84,7 @@ $(document).ready(function(){
 
 
 // 로그아웃
+<<<<<<< HEAD
 $(document).ready(function(){
 	$("#signOutBtn").click(function(){
 		
@@ -76,6 +93,11 @@ $(document).ready(function(){
 		}
 		
 	/*if (confirm('로그아웃 하시겠습니까?')){
+=======
+$(document).ready(function(){ 
+	$("#signOutBtn").click(function(){
+	if (confirm('로그아웃 하시겠습니까?')){
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	$.post("signOut",
 		{
 		   
@@ -86,6 +108,7 @@ $(document).ready(function(){
 			location.href = "/";	
 			}		   
 		);
+<<<<<<< HEAD
 		}*/
 		
 		Swal.fire({
@@ -118,6 +141,9 @@ $(document).ready(function(){
 			  }
 			})
 		
+=======
+		}
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});
 });
 
@@ -136,10 +162,13 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#memberUpdateBtn").click(function(){
 
+<<<<<<< HEAD
 		function close() {
 			window.close();
 		}
 		
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		var name=$("#floatingName").val();
 		var pw=$("#floatingPassword").val();
 
@@ -151,6 +180,7 @@ $(document).ready(function(){
 		});
 
 		if(pw == ""){
+<<<<<<< HEAD
 			//alert("비밀번호 값은 필수 입력입니다.");
 			Swal.fire({
 				  title: '비밀번호 값은 필수 입력입니다.',
@@ -169,6 +199,11 @@ $(document).ready(function(){
 				  timer: 1500
 			})
 			
+=======
+			alert("비밀번호 값은 필수 입력입니다.");
+		}else if (name == "" && prefer_arr.length == 0){
+			alert("수정된 정보가 없습니다.");
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		}else{
 			$.ajax({
 				method : "POST",
@@ -181,6 +216,7 @@ $(document).ready(function(){
 				},
 				success : function(data){
 				if(data != "비밀번호가 일치하지 않습니다." && data != "수정된 정보가 없습니다."){
+<<<<<<< HEAD
 				//alert(data);
 					/*Swal.fire({
 						  title: '정말 회원 정보를 수정하시겠습니까?',
@@ -220,6 +256,14 @@ $(document).ready(function(){
 						  showConfirmButton: false,
 						  timer: 2000
 					})
+=======
+				alert(data);
+				opener.parent.location.reload();
+				window.close();
+				}else{
+					alert(data);
+					
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 				}
 				}
 			});
@@ -227,6 +271,7 @@ $(document).ready(function(){
 	});
 });
 
+<<<<<<< HEAD
 
 //회원 탈퇴
 $(document).ready(function(){
@@ -237,6 +282,11 @@ $(document).ready(function(){
 		}
 		
 		/*if (confirm('정말 탈퇴하시겠습니까?')){
+=======
+$(document).ready(function(){
+	$("#memberDeleteBtn").click(function(){ 
+		if (confirm('정말 탈퇴하시겠습니까?')){
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			$.post("memberDelete",
 					{
 					   
@@ -247,6 +297,7 @@ $(document).ready(function(){
 						location.href = "/";	
 						}		   
 					);
+<<<<<<< HEAD
 		}*/
 		
 		Swal.fire({
@@ -281,6 +332,9 @@ $(document).ready(function(){
 			  }
 			})
 		
+=======
+		}
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	});
 });
 
@@ -289,10 +343,13 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#memberInsertBtn").click(function(){ 
 	
+<<<<<<< HEAD
 		function close() {
 			window.close();
 		}
 		
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		var name=$("#floatingName").val();
 		var id=$("#floatingID").val();
 		var pw=$("#floatingPassword").val();
@@ -305,6 +362,7 @@ $(document).ready(function(){
 			});
 
 		if(name == ""){
+<<<<<<< HEAD
 			//alert("이름 값은 필수 입력입니다.");
 			
 			Swal.fire({
@@ -346,6 +404,21 @@ $(document).ready(function(){
 					  showConfirmButton: false,
 					  timer: 1500
 				})
+=======
+			alert("이름 값은 필수 입력입니다.");
+
+		}
+		else if(id == ""){
+			alert("아이디 값은 필수 입력입니다.");
+
+		}
+		else if(pw == ""){
+			alert("비밀번호 값은 필수 입력입니다.");
+
+		}else{
+			if($("input:checkbox[name='preference']").is(":checked")==false){
+				alert("하나 이상의 취향 선택은 필수입니다.");
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 				
 			}else{
 				$.ajax({
@@ -360,6 +433,7 @@ $(document).ready(function(){
 					},
 					success : function(data){
 						if(data != "아이디가 중복입니다."){
+<<<<<<< HEAD
 						//alert(data);
 							Swal.fire({
 								  title: data,
@@ -378,6 +452,14 @@ $(document).ready(function(){
 							  showConfirmButton: false,
 							  timer: 1500
 						})
+=======
+						alert(data);
+						opener.parent.location.reload();
+						window.close();
+						}else{
+							alert("아이디가 중복입니다.");
+							
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 						}
 					}
 				});

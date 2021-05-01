@@ -33,10 +33,18 @@ public class Orders {
 	// 자동증가 기본값으로 id 설정 시 IDENTITY가 적절함
 	@Column(name = "order_count")
 	private BigDecimal orderCount;
+<<<<<<< HEAD
 	@NonNull
 	@Column(name = "order_method")
 	private String orderMethod;
 	
+=======
+	
+	@NonNull
+	@Column(name = "order_method")
+	private String orderMethod;
+
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	@Column(name = "order_Date")
 	private Timestamp orderDate;
 	@NonNull

@@ -40,7 +40,10 @@ $(document).ready(function(){
 // 로그아웃
 $(document).ready(function(){ 
 	$("#signOutBtn").click(function(){
+<<<<<<< HEAD
 	if (confirm('로그아웃 하시겠습니까?')){
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	$.post("signOut",
 		{
 		   
@@ -51,11 +54,17 @@ $(document).ready(function(){
 			location.href = "/";	
 			}		   
 		);
+<<<<<<< HEAD
 		}
 	});
 });
 
 // 회원가입
+=======
+	});
+
+});
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 $(document).ready(function(){
 	$("#signUpBtn").click(function(){ 
 		$.post("signUp",
@@ -66,6 +75,7 @@ $(document).ready(function(){
 	});
 });
 
+<<<<<<< HEAD
 //회원 정보 수정
 $(document).ready(function(){
 	$("#memberUpdateBtn").click(function(){
@@ -128,6 +138,13 @@ $(document).ready(function(){
 
 
 // 멤버 추가
+=======
+
+
+
+// 멤버 추가
+
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 $(document).ready(function(){
 	$("#memberInsertBtn").click(function(){ 
 	
@@ -145,6 +162,7 @@ $(document).ready(function(){
 		if(name == ""){
 			alert("이름 값은 필수 입력입니다.");
 
+<<<<<<< HEAD
 		}
 		else if(id == ""){
 			alert("아이디 값은 필수 입력입니다.");
@@ -181,6 +199,44 @@ $(document).ready(function(){
 				});
 			}
 		}
+=======
+		}
+		else if(id == ""){
+			alert("아이디 값은 필수 입력입니다.");
+
+		}
+		else if(pw == ""){
+			alert("비밀번호 값은 필수 입력입니다.");
+
+		}else{
+			if($("input:checkbox[name='preference']").is(":checked")==false){
+				alert("하나 이상의 취향 선택은 필수입니다.");
+				
+			}else{
+				$.ajax({
+					method : "POST",
+					url : "memberInsert",
+					traditional : true,
+					data : {
+						name:name,
+						id:id,
+						pw:pw,
+						prefer:prefer_arr
+					},
+				success : function(data){
+					if(data != "아이디가 중복입니다."){
+					alert(data);
+					opener.parent.location.reload();
+					window.close();
+					}else{
+						alert("아이디가 중복입니다.");
+						
+					}
+					}
+				});
+			}
+		}
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 
 
 	});

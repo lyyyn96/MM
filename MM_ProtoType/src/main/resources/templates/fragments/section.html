@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<head>
+<!-- <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 <body>
     <section>
         <article>
@@ -10,6 +16,7 @@
 			                    <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Movie Mentor</h3>
 			                </div>
 			            </div>
+<<<<<<< HEAD
 							<div class="col-sm-3 col-sm-offset-4 frame">
 					            <ul class="message-box"></ul>
 					            <div>
@@ -20,6 +27,42 @@
 					                </div>
 					            </div>
 				       	 </div>    
+=======
+			
+			            <div class="panel-body msg_container_base">
+			
+			                <div class="row msg_container base_sent">
+			                    <div class="col-md-10 col-xs-10">
+			                        <div class="messages msg_sent">
+			                            <p>대화 시작</p>
+			                        </div>
+			                    </div>
+			                    <div class="col-md-2 col-xs-2 avatar" style="max-height:70%;">
+			                        <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+			                    </div>
+			                </div>
+			
+			                <div class="row msg_container base_receive">
+			                    <div class="col-md-2 col-xs-2 avatar"  style="max-height:70%;">
+			                        <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+			                    </div>  
+			                    <div class="col-md-10 col-xs-10">
+			                        <div class="messages msg_receive">
+			                            <p>어떤 영화가 궁금하시나요?</p>
+			                        </div>
+			                    </div>
+			                </div>
+			
+			            </div>
+           			    <div class="panel-footer">
+					        <div class="input-group">
+					            <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+					            <span class="input-group-btn">
+					            <button class="btn btn-primary btn-sm" id="btn-chat"><i class="fa fa-send fa-1x" aria-hidden="true"></i></button>
+					            </span>
+					        </div>
+			    		</div>
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			        </div>
 			    </div>
 		
@@ -32,6 +75,7 @@
 			</div>
 			
 			<div id="movie_section" th:fragment="movie_section">
+<<<<<<< HEAD
     			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 취향저격 영화'"> User님의 취향저격 영화</div>
     			<span class="movie-box">
 				<span th:each="movie : ${movies}">	
@@ -63,12 +107,34 @@
 			                <br><br>
 			                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
 					                
+=======
+			   
+    			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 취향저격 영화'"> User님의 취향저격 영화</div>
+				<span th:each="movie : ${movies}">
+			          <div class="col-lg-4 col-md-6 mb-4">
+			            <div align="center" class="card h-100">
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
+			                </h4>
+			                <p th:text="${movie.moviePrice}"></p>
+					                <form method="get" action="movieDetail">
+						                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
+						                <button type="submit" name="movieDetailBtn">자세히 보기</button>
+					                </form>
+					                	<br>
+						           <div> <button class="" th:classappend="${movieStat.index}" name="cartInsertBtn">담기</button></div>
+						            	<br>
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 				                <br>
 			              </div>
 		            	</div>
 		            </div>
+<<<<<<< HEAD
 		            
 				</span>
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 				</span>
 			</div>
 			
@@ -80,6 +146,7 @@
 			                <h4 class="card-title">
 			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 			                </h4>
+<<<<<<< HEAD
 			                <img id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${filePath} + '/'"  width="25" height="25%"/>
 			               	
 			               	<p th:text="'별점 : ' + ${movie.movieRating}+'점'"></p>
@@ -95,13 +162,30 @@
 
 				                <br>
 			                <div><input class="btn btn-secondary my-2 my-sm-0" type="button" value="이전 페이지" onClick="history.go(-1)"> </div>
+=======
+			               	<p th:text="${movie.movieRating}"></p>
+			                <p th:text="${movie.movieGenre}"></p>
+			                <p th:text="${movie.movieDirector}"></p>
+			                <p th:text="${movie.movieActor}"></p>
+			                <p th:text="${movie.movieRdate}"></p>
+			                <p th:text="${movie.movieRtime}"></p>
+			                <p th:text="${movie.moviePrice}"></p>
+			                <p th:text="${movie.movieStory}"></p>
+			                <div><button class="0" name="cartInsertBtn">담기</button></div>
+				                <br>
+			                <div><input type="button" value="이전 페이지" onClick="history.go(-1)"> </div>
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			              	    <br>	
 			              <!-- </div> -->
 			            </div>
 		            </div>
 	            </div>
 			</div>
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			<div  id="result_section" th:fragment="cart_section">
 	    			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 장바구니'"> User님의 장바구니</div>
 	    			<div th:if="${movies != null}">
@@ -112,6 +196,7 @@
 					                <h4 class="card-title">
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
+<<<<<<< HEAD
 					                  <span th:each="poster : ${posters}">
 					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 					                </span>
@@ -122,6 +207,23 @@
 					                		<br><br>
 					                	<div><button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieDetailBtn">자세히 보기</button></div>
 						                	<br>	
+=======
+					                <p th:text="${movie.moviePrice}"></p>
+
+					                	<form method="get" action="movieOrder">
+							                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
+							                <button type="submit">구매</button>
+						                </form>
+						                	<br>
+						                <form method="get" action="movieDetail">
+							                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
+							                <button type="submit">자세히 보기</button>
+						                </form>
+						                	<br>
+						                <div><button class="" th:classappend="${movieStat.index}" name="cartDeleteBtn">삭제</button></div>
+					                		<br>	
+
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 					              </div>
 					            </div>
 					            </div>
@@ -130,6 +232,11 @@
 			</div>
 			
 			
+<<<<<<< HEAD
+=======
+			
+			
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		</article>
 	</section>
 </body>
@@ -161,4 +268,9 @@
 	                         </div>
 	                        </div>
                         </div>
+<<<<<<< HEAD
                     </div> -->
+=======
+                    </div> -->
+           
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6

@@ -1,4 +1,5 @@
 //검색 
+<<<<<<< HEAD
 //$(document).ready(function(){ 
 //	$("#searchBtn").click(function(){
 //		
@@ -154,4 +155,20 @@ $(document).ready(function(){
 			}
 		});
 
+=======
+$(document).ready(function(){ 
+	$("#searchBtn").click(function(){
+		
+		var movieTitle=$("#movieTitle").val();
+		if (movieTitle == ""){
+			$.get("movieList",{
+				});
+		}
+		else {
+			$.get("moiveSearch",{
+					movieTitle : movieTitle,
+			});
+		}
+	});
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 });

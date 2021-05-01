@@ -1,5 +1,11 @@
 package com.proto.mm.controller;
 
+<<<<<<< HEAD
+=======
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -43,7 +49,11 @@ public class MainController{
 		// 세션을 체크해서 로그인 상태인지 확인
 		mainService.signInCheck(model, request, response);
 		mainService.showSelectedGenre(model, request, response);
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		return "home";
 	}
 
@@ -57,7 +67,11 @@ public class MainController{
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		
+<<<<<<< HEAD
 		JSONObject json=new org.json.simple.JSONObject();
+=======
+		JSONObject json=new JSONObject();
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 
 		
 		try {

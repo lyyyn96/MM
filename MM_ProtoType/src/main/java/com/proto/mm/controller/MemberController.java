@@ -61,7 +61,11 @@ public class MemberController {
 			Member result = memberService.idCheck(id);
 			if(result == null) {
 				memberService.memberInsert(m);
+<<<<<<< HEAD
 				return name+"님 회원가입 되셨습니다.";	
+=======
+				return name+"님 회원가입 되셨습니다";	
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			}else {
 				return "아이디가 중복입니다.";
 			}
@@ -136,7 +140,11 @@ public class MemberController {
 		memberService.memberInsert(result);
 		session.setAttribute("member", result);
 		
+<<<<<<< HEAD
 		return result.getName()+"님 회원 정보 수정 되셨습니다.";	
+=======
+		return result.getName()+"님 회원 정보 수정 되셨습니다";	
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	}
 	
 	@RequestMapping(value = "memberDelete",
@@ -152,6 +160,10 @@ public class MemberController {
 		memberService.memberDelete(member);
 		session.invalidate();
 		
+<<<<<<< HEAD
 		return member.getName()+"님 회원 탈퇴되셨습니다.";	
+=======
+		return member.getName()+"님 회원 탈퇴되셨습니다";	
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	}
 }

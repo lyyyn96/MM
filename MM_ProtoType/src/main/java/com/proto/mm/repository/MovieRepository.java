@@ -18,6 +18,7 @@ public interface MovieRepository extends JpaRepository<Movie, BigDecimal>{
 	
 	public List<Movie> findByMovieTitleContains(String movieTitle, Sort sort);
 	
+<<<<<<< HEAD
 	public List<Movie> findTop6ByMovieGenreContains(String movieGenre, Sort sort);
 
 	public List<Movie> findByMovieTitleStartsWith(String searchValue, Sort sort);
@@ -31,5 +32,8 @@ public interface MovieRepository extends JpaRepository<Movie, BigDecimal>{
 	public List<Movie> findByMovieGenreContainsAndMovieRatingGreaterThanEqualAndMoviePriceLessThanEqualAndMovieRdateContains(String movieGenre, BigDecimal movieRating, BigDecimal moviePrice, String movieRdate, Sort sort);
 	
 	public List<Movie> findByMovieGenreContainsAndMovieRatingGreaterThanEqualAndMoviePriceLessThanEqualAndMovieRdateContainsAndMovieRtimeLessThanEqual(String movieGenre, BigDecimal movieRating, BigDecimal moviePrice, String movieRdate, BigDecimal movieRtime, Sort sort);
+=======
+	public List<Movie> findTop9ByMovieGenreContains(String movieGenre, Sort sort);
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	
 }

@@ -4,6 +4,7 @@ body {
     */
 }
 
+<<<<<<< HEAD
 #poster{
 	display:block;
 	margin: 0px auto;
@@ -100,11 +101,14 @@ body {
 	color: rgba(255,255,255,1);
 }
 
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 #home_section{
     width: auto;
     text-align: center;
     height: 100vh;
     position: relative;
+<<<<<<< HEAD
     overflow-y:auto;
 }
 
@@ -115,11 +119,15 @@ body {
 
 #movieDetail_section{
 	overflow-y:auto;
+=======
+    overflow:scroll;
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 }
 
 #movie_main_title{
 	padding-top:30px;
 	padding-bottom:30px;
+<<<<<<< HEAD
 	/*border:1px solid #000000 ;*/
 	/* border-radius:20px; */
     margin-left:15px;
@@ -148,11 +156,31 @@ div.card-body{
 
 div.card-body-cart{
 	height:650px;
+=======
+	border:2px solid #000000;
+	border-radius:20px;
+    margin-left:15px;
+    margin-right:15px;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+div.card-body{
+	height:180px;
+}
+
+div.card-body-cart{
+	height:200px;
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 }
 
 div.card-body-detail{
 	height:650px;
+<<<<<<< HEAD
 	width: 200px;
+=======
+	width: 300px;
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 }
 
 div.col-md-6-detail {
@@ -163,11 +191,14 @@ div.col-lg-4-detail{
 	padding-left: 15px;
 	padding-right: 15px;
 	max-width: 100%;
+<<<<<<< HEAD
 }
 
 .navbar {
     border-radius: 0px! important;
     background: #000! important;
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 }
 
 html{

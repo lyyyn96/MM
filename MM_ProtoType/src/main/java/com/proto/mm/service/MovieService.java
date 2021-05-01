@@ -1,23 +1,35 @@
 package com.proto.mm.service;
 
+<<<<<<< HEAD
 
 import java.math.BigDecimal;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+=======
+import javax.servlet.http.HttpSession;
+
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+<<<<<<< HEAD
+=======
+import com.proto.mm.model.Member;
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 import com.proto.mm.model.Movie;
 import com.proto.mm.repository.MovieRepository;
 
@@ -27,18 +39,26 @@ public class MovieService {
 	@Autowired
 	private MovieRepository movieRepository;
 	
+<<<<<<< HEAD
 	@Autowired
 	private PosterService posterService;
 	
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	public Model showMovieList(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
 		System.out.println("영화목록 서비스 호출");
 		// 모든 영화 목록 조회 후 Movie List에 저장 후 model에 값 저장 후 반환
 		List<Movie> movies = movieRepository.findAll(Sort.by(Sort.Direction.ASC, "movieCode"));
+<<<<<<< HEAD
 		
 		model.addAttribute("movies", movies);
 		model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
 		posterService.showPosterResult(model);
+=======
+		model.addAttribute("movies", movies);
+		model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		/*for(Movie movie : movies) {
 			System.out.println(movie.toString());
 		}*/
@@ -53,7 +73,11 @@ public class MovieService {
 		model.addAttribute("movie", movie);
 		model.addAttribute("detail", "detail");
 		//System.out.println(movie.toString());
+<<<<<<< HEAD
 		posterService.showDetailPoster(model, movieTitle);
+=======
+		
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		return model;
 	}
 
@@ -63,9 +87,15 @@ public class MovieService {
 			System.out.println("영화검색 서비스 호출");
 			String movieTitle = request.getParameter("movieTitle");
 			List<Movie> movies = movieRepository.findByMovieTitleContains(movieTitle, Sort.by(Sort.Direction.ASC, "movieCode"));
+<<<<<<< HEAD
 			model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
 			model.addAttribute("movies", movies);
 			posterService.showPosterResult(model);
+=======
+			
+			model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
+			model.addAttribute("movies", movies);
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 			System.out.println(movies.toString());
 		}catch(NullPointerException e) {
 			System.out.println(e.getStackTrace());
@@ -73,6 +103,7 @@ public class MovieService {
 		return model;
 	}
 	
+<<<<<<< HEAD
 	public Model movieFilter(Model model, String movieGenre, int movieRating, int moviePrice,String movieRdate,int movieRtime) {
 		try {
 			System.out.println("영화 필터 호출");
@@ -126,4 +157,6 @@ public class MovieService {
 
 	}
 	
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 }

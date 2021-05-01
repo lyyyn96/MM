@@ -15,11 +15,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.proto.mm.model.Cart;
+<<<<<<< HEAD
 import com.proto.mm.model.KakaoPayApproval;
 import com.proto.mm.model.Member;
 import com.proto.mm.model.Movie;
 import com.proto.mm.model.Orders;
 import com.proto.mm.repository.CartRepository;
+=======
+import com.proto.mm.model.Member;
+import com.proto.mm.model.Movie;
+import com.proto.mm.model.Orders;
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.OrdersRepository;
 
@@ -33,6 +39,7 @@ public class OrdersService {
 	@Autowired
 	private MovieRepository movieRepository;
 	
+<<<<<<< HEAD
 	@Autowired
 	private CartRepository cartRepository;
 	
@@ -40,6 +47,8 @@ public class OrdersService {
 	CartService cartService;
 	
 	
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	public Model showOrder(Model model,HttpServletRequest request,
 			HttpServletResponse response) {
 		System.out.println("구매 서비스 호출");
@@ -67,10 +76,17 @@ public class OrdersService {
 			model.addAttribute("movies", orderMovies);
 
 			
+<<<<<<< HEAD
 			/*for(int i=0;i<orders.size();i++) {
 				System.out.println(orders.get(i).toString());
 				System.out.println(orderMovies.get(i).toString());
 			}*/
+=======
+			for(int i=0;i<orders.size();i++) {
+				System.out.println(orders.get(i).toString());
+				System.out.println(orderMovies.get(i).toString());
+			}
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		}		
 		
 		return model;
@@ -78,23 +94,37 @@ public class OrdersService {
 	
 	public List<Movie> findMovieByMovieCode (List<Orders> orders){
 		
+<<<<<<< HEAD
 		List<Movie> orderMovies=new ArrayList<Movie>();
+=======
+		List<Movie> cartMovies=new ArrayList<Movie>();
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		
 		for(Orders order : orders) {
 			BigDecimal movieCode = order.getMovieCode();
 			Movie movie = new Movie();
 			movie = movieRepository.findByMovieCode(movieCode);
+<<<<<<< HEAD
 			orderMovies.add(movie);
 		}
 		return orderMovies;
 	}
 
 	public void orderInsert(Model model,HttpServletRequest request, HttpServletResponse response) {
+=======
+			cartMovies.add(movie);
+		}
+		return cartMovies;
+	}
+
+	public void orderInsert(HttpServletRequest request, HttpServletResponse response) {
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 		System.out.println("구매 진행 서비스 호출");
 		HttpSession session = request.getSession(false);
 		Member member = (Member) session.getAttribute("member");
 		BigDecimal memCount = member.getMemCount();
 		
+<<<<<<< HEAD
 		Movie movie = (Movie) session.getAttribute("movie");
 		BigDecimal movieCode = movie.getMovieCode();
 		KakaoPayApproval kakaoPayApproval=(KakaoPayApproval) model.getAttribute("info");
@@ -108,6 +138,18 @@ public class OrdersService {
 		orderRepository.save(order);
 		Cart cart = cartRepository.findByMovieCodeAndMemCount(movieCode, memCount);
   	  	cartService.cartDelete(cart);
+=======
+		String movie_title = request.getParameter("movieTitle");
+		String orderMethod = request.getParameter("orderMethod");
+		Movie movie = movieRepository.findByMovieTitle(movie_title);
+		BigDecimal movieCode = movie.getMovieCode();
+		BigDecimal orderCount=null;
+		Timestamp orderDate = new Timestamp(System.currentTimeMillis());
+		Orders order = new Orders(orderCount, orderMethod, orderDate, memCount, movieCode, "0");
+		
+		orderRepository.save(order);
+		
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	}
 
 	public Orders orderCheck(HttpServletRequest request, HttpServletResponse response) {
@@ -136,9 +178,12 @@ public class OrdersService {
 		Orders order = orderRepository.findByMemCountAndMovieCode(memCount, movieCode);
 		order.setOrderDown("1");
 		orderRepository.save(order);	
+<<<<<<< HEAD
 		
 		
 		
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	}
 
 	public void deleteOrder(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -154,5 +199,8 @@ public class OrdersService {
 		Orders order = orderRepository.findByMemCountAndMovieCode(memCount, movieCode);
 		orderRepository.delete(order);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 }

@@ -2,6 +2,10 @@ package com.proto.mm.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+=======
+import javax.servlet.http.HttpSession;
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,8 +53,11 @@ public class OrdersController {
 		orderService.showOrderList(model, request, response);
 		return "orderList";
 	}
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	
 	@RequestMapping(value = "orderInsert", 
 			method= {RequestMethod.POST},
@@ -61,12 +68,20 @@ public class OrdersController {
 			try {
 				
 				if(orderService.orderCheck(request, response) == null) {
+<<<<<<< HEAD
+=======
+					orderService.orderInsert(request, response);
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 					String movieTitle = request.getParameter("movieTitle");
 					
 					Cart cart = cartService.findCartMovie(request, response);
 					cartService.cartDelete(cart);
 				
+<<<<<<< HEAD
 					return movieTitle + " 구매를 진행합니다.";
+=======
+					return movieTitle + " 이(가) 구매되었습니다.";
+>>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 				}else {
 					Cart cart = cartService.findCartMovie(request, response);
 					cartService.cartDelete(cart);
