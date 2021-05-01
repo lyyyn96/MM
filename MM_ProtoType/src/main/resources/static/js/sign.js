@@ -26,18 +26,78 @@ $(document).ready(function(){
 						  showConfirmButton: false,
 						  timer: 5000
 					})
+					
+					/*
+					let timerInterval
+					Swal.fire({
+					  title: obj.name+"님 환영합니다.",
+					  timer: 2000,
+					  icon: 'success',
+					  showConfirmButton: false,
+					  didOpen: () => {
+					    Swal.showLoading()
+					    timerInterval = setInterval(() => {
+					      const content = Swal.getContent()
+					      if (content) {
+					        const b = content.querySelector('b')
+					        if (b) {
+					          b.textContent = Swal.getTimerLeft()
+					        }
+					      }
+					    }, 100)
+					  },
+					  willClose: () => {
+					    clearInterval(timerInterval)
+					  }
+					}).then((result) => {
+					  // Read more about handling dismissals below
+					  if (result.dismiss === Swal.DismissReason.timer) {
+					    console.log('I was closed by the timer')
+					  }
+					})*/
+					
+					
 				 	location.href = "home";
 					//setTimeout("location.href='home'",5000);
 				 	//setTimeout(location,10000);
 					$.cookie("logined",obj.name + "님 환영합니다.", {path:'/'});	
 				}else{
 					//alert(obj.msg);
+					
+					let timerInterval
 					Swal.fire({
+					  title: obj.msg,
+					  timer: 4000,
+					  icon: 'warning',
+					  showConfirmButton: false,
+					  didOpen: () => {
+					    Swal.showLoading()
+					    timerInterval = setInterval(() => {
+					      const content = Swal.getContent()
+					      if (content) {
+					        const b = content.querySelector('b')
+					        if (b) {
+					          b.textContent = Swal.getTimerLeft()
+					        }
+					      }
+					    }, 100)
+					  },
+					  willClose: () => {
+					    clearInterval(timerInterval)
+					  }
+					}).then((result) => {
+					  /* Read more about handling dismissals below */
+					  if (result.dismiss === Swal.DismissReason.timer) {
+					    console.log('I was closed by the timer')
+					  }
+					})
+					
+					/*Swal.fire({
 						  title: obj.msg,
 						  icon: 'warning',
 						  showConfirmButton: false,
 						  timer: 5000
-					})
+					})*/
 					//location.reload();
 					//setTimeout(reload,5000);
 					//setTimeout("location.reload()",5000);

@@ -113,8 +113,8 @@
 }
 .frame{
     /* background:#2c3e5014; */
-    /*background: linear-gradient(to right, #485563, #29323c);*/
     background: linear-gradient(to right, #232526, #414345);
+    /*background: #000;*/
     height: 95%;
     min-width:100%;
     margin:0;
