@@ -59,6 +59,19 @@ public class MovieController {
 		System.out.println(json);
 		return json.toString();
 	}
+	
+	@RequestMapping(value = "movieAllDetail", 
+			method= {RequestMethod.GET})
+	public String showCartMovieDetail(Model model, HttpServletRequest request,
+							  HttpServletResponse response) {
+		String movieTitle=request.getParameter("movieTitle");
+
+		mainService.signInCheck(model, request, response);
+		movieService.showMovieDetail(model, movieTitle);
+		System.out.println("영화 자세히 보기 정보 : "+model+"\n"+movieTitle);
+		
+		return "movieAllDetail";
+	}
 
 	@RequestMapping(value = "movieList", 
 	method= {RequestMethod.GET})
@@ -71,6 +84,16 @@ public class MovieController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "movieAll", 
+	method= {RequestMethod.GET})
+	public String movieAll(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		// 세션을 체크해서 로그인 상태인지 확인
+		mainService.signInCheck(model, request, response);
+		movieService.showMovieList(model, request, response);
+
+		return "movieAll";
+	}
 	
 	@GetMapping("movieSearch")
 	@ResponseBody
