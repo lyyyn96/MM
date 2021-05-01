@@ -9,10 +9,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -24,7 +27,9 @@ import com.proto.mm.util.SaveImg;
 
 @Service
 public class PosterService {
-
+	@Autowired 
+	private ServletContext servletContext; 
+	
 	@Autowired
 	PosterRepository posterRepository;
 
@@ -52,7 +57,18 @@ public class PosterService {
 			posters.add(poster);
 		}
 		model.addAttribute("posters", posters);
-
+		System.out.println(servletContext.getRealPath("/poster"));
+		System.out.println(servletContext.getRealPath("poster"));
+		String path = servletContext.getRealPath("/poster/MM/movie_imgs/194485.png/");
+		Resource resource = new FileSystemResource(path);
+	    try {
+			path = resource.getFile().getAbsolutePath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    System.out.println("path ==>" + path);
+		
 		return model;
 	}
 
