@@ -107,7 +107,17 @@ $(document).ready(function(){
 
 		setTimeout(function() {
 			if(control != ""){
-				$(".movie-box").html(control);
+				var string = window.location.href;
+				string = string.split('/').reverse()[0];
+				if(string != "home"){
+					location.href="home";
+					//alert(control);
+					$(".movie-box").html(control);
+				}else{
+					$(".movie-box").html(control);
+				}
+				
+				
 			}
 
 		}, time);

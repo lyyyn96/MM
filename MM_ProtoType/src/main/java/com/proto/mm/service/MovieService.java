@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -65,6 +66,8 @@ public class MovieService {
 			System.out.println("영화검색 서비스 호출");
 			String movieTitle = request.getParameter("movieTitle");
 			List<Movie> movies = movieRepository.findByMovieTitleContains(movieTitle, Sort.by(Sort.Direction.ASC, "movieCode"));
+			HttpSession session = request.getSession();
+			session.setAttribute("searched", "searched");
 			model.addAttribute("searched", "searched"); //model.addAttribute("key","value")
 			model.addAttribute("movies", movies);
 			posterService.showPosterResult(model);
