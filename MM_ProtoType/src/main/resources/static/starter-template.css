@@ -38,7 +38,8 @@
 	transform: translateY(-50%);
 	height: 60px;
 	width: 60px;
-	color: #664AFF;
+	/*color: #664AFF;*/
+	color: #870000;
 	background: #fff;
 	line-height: 60px;
 	font-size: 22px;
@@ -54,7 +55,8 @@
 	height: 50px;
 	width: 50px;
 	color: #fff;
-	background: #664AFF;
+	/*background: #664AFF;*/
+	background: #870000;
 	line-height: 50px;
 	font-size: 20px;
 	transform: translateY(-50%) rotate(360deg);
@@ -80,9 +82,7 @@
 } 
 
 body {
-    /* padding-top: 5rem;
     background-color: #000! important;
-    */
 }
 
 #poster{
@@ -192,10 +192,12 @@ body {
 #movie_section{
 	overflow-y:auto;
 	/*height: 100vh;*/
+	padding-left: 30px;
 }
 
 #movieDetail_section{
 	overflow-y:auto;
+	padding-left: 30px;
 }
 
 #movie_main_title{
@@ -208,17 +210,27 @@ body {
     margin-bottom:10px;
     font-size:22px; 
     color: #fff;
-    background: linear-gradient(to right, #232526, #414345);
+    /*background: linear-gradient(to right, #232526, #414345);*/
+	background: #000;
+	text-align: left;
 }
 
 #signOutBtn{
 	margin-top:8px! important;
 }
 
+#memberInfo{
+	color: #fff;
+}
+
+.table-striped{
+	color: #fff;
+}
+
 div.h-100{
 	border-radius: 0px! important;
 	background: transparent! important;
-	color: #000;
+	color: #fff;
 	height: 450px! important;
 
 }

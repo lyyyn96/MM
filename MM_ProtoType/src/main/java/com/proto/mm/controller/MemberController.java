@@ -67,6 +67,9 @@ public class MemberController {
 		String temp = Arrays.toString(prefer);
 		String preference = temp.replaceAll("[\\s\\[\\]]", "");
 		BigDecimal mem_count = null;
+
+		pw = memberService.hashing(pw);
+		
 		try {
 			Member m=new Member(mem_count,id,pw,name,preference,phone); 
 			Member result = memberService.idCheck(id);
