@@ -68,6 +68,8 @@ public class MainController{
 							  HttpServletResponse response) {
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
+
+		pw = memberService.hashing(pw);
 		
 		JSONObject json=new org.json.simple.JSONObject();
 
@@ -77,7 +79,7 @@ public class MainController{
 			Member member = memberService.signIn(id,pw);
 			// 반환 된 Member 객체에서 name 값 얻기
 			String name = member.getName();
-			
+
 			if(name!=null) {
 				// 세션 값이 있다면 가져오고 없다면 생성하여 member 객체를 입력
 				HttpSession session=request.getSession();

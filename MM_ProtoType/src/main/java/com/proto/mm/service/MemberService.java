@@ -1,5 +1,8 @@
 package com.proto.mm.service;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -64,6 +67,20 @@ public class MemberService {
 
 	public Member findPW(String id, String phoneNumber) {
 		return memberRepository.findByIdAndPhone(id, phoneNumber);
+	}
+	
+	public String hashing(String pw) {
+		MessageDigest md;
+		String hex = null;
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+			md.update(pw.getBytes());
+			hex = String.format("%064x", new BigInteger(1, md.digest()));
+		} catch (NoSuchAlgorithmException e1) {
+			e1.printStackTrace();
+		}
+		
+		return hex;
 	}
 	
 }
