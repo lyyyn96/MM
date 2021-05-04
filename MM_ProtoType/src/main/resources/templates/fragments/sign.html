@@ -15,13 +15,18 @@
 	      <label for="floatingPassword">Password</label>
 	    </div>
 		
-	    <button class="w-75 btn btn-lg btn-primary" id="signInBtn">Sign in</button>
-	    <br>
-	    <button class="w-50 btn btn-lg btn-primary-up" id="signUpBtn" onclick="window.open('memberInsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">Sign up</button>
-	    <br>
-	    <br>
-	    <button class="w-30 btn btn-lg btn-primary" id="IDBtn" onclick="window.open('findIdForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">Find ID</button>
-	    <button class="w-30 btn btn-lg btn-primary" id="PWBtn" onclick="window.open('findPwForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">Find PW</button>
+	    <button class="w-75 btn btn-lg btn-primary" id="signInBtn">로그인</button>
+	    <!-- class="w-75 btn btn-lg btn-primary" -->
+	    <br><br>
+	    <div class="indexContainer">
+	    <div class="findId" id="IDBtn" style="cursor:pointer;" onclick="window.open('findIdForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">아이디</div>
+	    &nbsp<div >·</div>&nbsp
+	    <!-- class="w-30 btn btn-lg btn-primary" -->
+	    <div class="findPw" id="PWBtn" style="cursor:pointer;" onclick="window.open('findPwForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">비밀번호 찾기</div>
+	  	<!-- class="w-30 btn btn-lg btn-primary" -->
+	  	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<div class="signUp" id="signUpBtn" style="cursor:pointer;" onclick="window.open('memberInsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">회원가입</div>
+	    <!-- class="w-50 btn btn-lg btn-primary-up" -->
+	    </div>
 	  </form> 
 	
 	  <footer>

@@ -96,7 +96,7 @@
 	
 	        </div>
         	<!-- 검색 창-->	        
-	        <div>
+	        <!-- <div> -->
 
 	            <!--  <form class="form-inline my-2 my-lg-0" method="get" action="movieSearch">
 	                <input class="form-control mr-sm-2" id= "autocompleteText" name="movieTitle" type="text" placeholder="Search" aria-label="Search">
@@ -135,9 +135,8 @@
 	            	}
 	            </script>
 
-	        </div>
-
-			
+	        <!-- </div> -->
+	        
 	        <!-- 로그인 상태 표시 칸-->
 	        <ul class="navbar-nav mr-auto">
 	            <li class="nav-item" th:if="${logined}">
@@ -148,7 +147,8 @@
                     <a class="nav-link" id="msgDiv" href="/">로그인 해주세요 <span class="sr-only">(current)</span></a>
 	            </li>
 	            <li class="nav-item" th:if="${logined}">
-	            	<button class="btn btn-secondary my-2 my-sm-0" id="signOutBtn" >Sign out</button>
+	            	<a class="nav-link" style="cursor:pointer;" id="signOutBtn">로그아웃</a>
+	            	<!-- class="btn btn-secondary my-2 my-sm-0" -->
 	            </li>
 	        </ul>
 	    </nav>     
