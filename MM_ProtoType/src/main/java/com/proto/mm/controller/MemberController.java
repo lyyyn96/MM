@@ -121,14 +121,22 @@ public class MemberController {
 	@ResponseBody
 	public String memberUpdate(Model model,HttpServletRequest request,
 			HttpServletResponse response, String[] prefer) {
-		// 세션을 체크해서 로그인 상태인지 확인
-		mainService.signInCheck(model, request, response);
-		HttpSession session=request.getSession();
-		Member member = (Member)session.getAttribute("member");
-		Member result = memberService.idCheck(member.getId());
+		String id=request.getParameter("id");
+		Member result;
+		if (id == null) {
+			// 세션을 체크해서 로그인 상태인지 확인
+			System.out.println("member");
+			mainService.signInCheck(model, request, response);
+			HttpSession session = request.getSession();
+			Member member = (Member) session.getAttribute("member");
+			result = memberService.idCheck(member.getId());
+		} else {
+			System.out.println("id");
+			result = memberService.idCheck(id);
+		}
 		String pw=request.getParameter("pw");
-		
-		if(!pw.equals(member.getPw()))
+		pw = memberService.hashing(pw);
+		if(!pw.equals(result.getPw()))
 			return "비밀번호가 일치하지 않습니다.";
 		
 		String name=request.getParameter("name");
@@ -143,12 +151,17 @@ public class MemberController {
 			result.setPreference(preference);
 		if(!phone.isEmpty())
 			result.setPhone(phone);
-		if(!changepw.isEmpty())
+		if(!changepw.isEmpty()) {
+			changepw = memberService.hashing(changepw);
 			result.setPw(changepw);
+		}
 		
 		System.out.println(result);
 		memberService.memberInsert(result);
-		session.setAttribute("member", result);
+		if (id == null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("member", result);
+		}
 		
 		return result.getName()+"님 회원 정보 수정 되셨습니다.";	
 	}
@@ -195,7 +208,7 @@ public class MemberController {
 		if(member == null) {
 			return "회원 정보가 존재하지 않습니다.";
 		}else {
-			return "찾으시는 PW는" +member.getPw()+" 입니다";
+			return member.getPw();
 		}
 	}
 }
