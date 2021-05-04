@@ -114,6 +114,28 @@ $(document).ready(
 					});
 				}
 			});
+			
+			$("#btn-chat").click(function(){
+				var text = $(".mytext").val();
+				if (text !== "") {
+					insertChat("me", text);
+					$(".mytext").val('');
+				}
+
+				$.get("chat", {
+					chat : text
+				}, function(data) {
+					var obj=JSON.parse(data);
+					var text = obj.chatMsg;
+					var movies = obj.movies;
+					var posters = obj.posters;
+					
+					if (text !== "") {
+						insertChat("mm", text, 15);
+						insertMovie(movies, posters, 15);
+					}
+				});
+			});
 
 			resetChat();
 			insertChat("mm", "안녕하세요. 취향에 맞는 영화를 찾아주는 MM입니다.<br><br>'영화 추천', '취향에 맞는 영화' 등을 입력해서 취향에 맞는 영화를 찾아보세요.<br><br>원하는 영화 결과가 없거나 처음부터 다시 시작하고 싶으신 경우 채팅창에 '다시'를 입력 해주세요.", 0);
