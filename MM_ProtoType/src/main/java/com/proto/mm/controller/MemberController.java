@@ -123,6 +123,7 @@ public class MemberController {
 			HttpServletResponse response, String[] prefer) {
 		String id=request.getParameter("id");
 		Member result;
+		String pw;
 		if (id == null) {
 			// 세션을 체크해서 로그인 상태인지 확인
 			System.out.println("member");
@@ -130,12 +131,14 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			Member member = (Member) session.getAttribute("member");
 			result = memberService.idCheck(member.getId());
+			pw=request.getParameter("pw");
+			pw = memberService.hashing(pw);
 		} else {
 			System.out.println("id");
 			result = memberService.idCheck(id);
+			pw=request.getParameter("pw");
 		}
-		String pw=request.getParameter("pw");
-		pw = memberService.hashing(pw);
+		
 		if(!pw.equals(result.getPw()))
 			return "비밀번호가 일치하지 않습니다.";
 		
@@ -153,6 +156,8 @@ public class MemberController {
 			result.setPhone(phone);
 		if(!changepw.isEmpty()) {
 			changepw = memberService.hashing(changepw);
+			if(changepw.equals(pw))
+				return "변경할 비밀번호가 기존 비밀번호와 같습니다.";
 			result.setPw(changepw);
 		}
 		

@@ -177,13 +177,6 @@ $(document).ready(function(){
 				showConfirmButton: false,
 			})
 			
-		}else if(changepw != "" && pw != "" && changepw == pw){
-			Swal.fire({
-				title: '변경할 비밀번호가 확인란의 비밀번호와 같습니다!',
-				icon: 'warning',
-				showConfirmButton: false,
-			})
-			
 		}else{
 			$.ajax({
 				method : "POST",
@@ -197,7 +190,7 @@ $(document).ready(function(){
 				phoneNumber:phoneNumber
 				},
 				success : function(data){
-				if(data != "비밀번호가 일치하지 않습니다."){
+				if(data != "비밀번호가 일치하지 않습니다." && data != "변경할 비밀번호가 기존 비밀번호와 같습니다."){
 				//alert(data);
 					/*Swal.fire({
 						  title: '정말 회원 정보를 수정하시겠습니까?',
@@ -315,8 +308,8 @@ $(document).ready(function(){
 		var pw=$("#floatingPassword").val();
 		var phoneNumber = $('#inputPhoneNumber').val();
 		var certify = $('#sendPhoneNumber').val();
-
-
+		var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		
 		var prefer_arr = [];
 		$("input[name='preference']:checked").each(function() {
 				var prefer = $(this).val();
@@ -340,6 +333,26 @@ $(document).ready(function(){
 			
 			Swal.fire({
 				  title: '아이디 값은 필수 입력입니다.',
+				  icon: 'warning',
+				  showConfirmButton: false,
+				  timer: 1500
+			})
+
+		}else if(!regExp.test(id)){
+			//alert("아이디 값은 필수 입력입니다.");
+			
+			Swal.fire({
+				  title: '아이디는 이메일 형식이어야 합니다.',
+				  icon: 'warning',
+				  showConfirmButton: false,
+				  timer: 1500
+			})
+
+		}else if(phoneNumber == ""){
+			//alert("아이디 값은 필수 입력입니다.");
+			
+			Swal.fire({
+				  title: '핸드폰 번호는 필수 입력입니다.',
 				  icon: 'warning',
 				  showConfirmButton: false,
 				  timer: 1500
@@ -703,7 +716,7 @@ $(document).ready(function() {
 										phoneNumber:""
 										},
 										success : function(data){
-										if(data != "비밀번호가 일치하지 않습니다."){
+										if(data != "비밀번호가 일치하지 않습니다." && data != "변경할 비밀번호가 기존 비밀번호와 같습니다."){
 											
 											Swal.fire({
 												  icon: 'success',
