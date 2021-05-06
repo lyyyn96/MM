@@ -119,7 +119,8 @@
 					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 					                </span>
 					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
-										 <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
+					              
+										 <button class="btn btn-warning" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
 										<br><br>
 						                <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="cartDeleteBtn">삭제</button>
 					                		<br><br>

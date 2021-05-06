@@ -65,7 +65,7 @@
 	transform: translateY(-50%) rotate(360deg);
 	
 }
-
+/*
 .search-box .cancel-btn
 {
 	position: absolute;
@@ -85,9 +85,14 @@
 	color: #fff;
 	line-height: 50px! important;
 }
+*/
 
 .fa-times{
 	color: #fff;
+}
+
+.memberInfoBtns{
+	float:right;
 }
 
 body {
@@ -183,7 +188,7 @@ body {
 	/*color: rgba(255,255,255,0.4);*/
 	color: #000;/*rgba(0,0,0,0.4);*/
 	/*background: #262c37;*/
-	background: #DCDCDC;
+	background: #FFD700;
 	letter-spacing: 2px;
 	font-size: 16px;
 	transition: 0.5s;
@@ -192,7 +197,7 @@ body {
 
 .cartInsertBtn:hover
 {
-	color: #870000;
+	color: #F8F8FF;
 }
 
 #home_section{
@@ -247,6 +252,10 @@ body {
 	color: #fff;
 }
 
+/* .btn{
+	border-radius: 0px! important;
+} */
+
 div.h-100{
 	border-radius: 0px! important;
 	background: transparent! important;
@@ -257,6 +266,7 @@ div.h-100{
 div.h-100-detail{
 	background: #333;
 	color: #f0f0f0;
+	border-radius: 0px! important;
 }
 
 div.card-body{

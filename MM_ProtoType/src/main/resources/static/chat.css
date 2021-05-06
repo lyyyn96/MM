@@ -35,8 +35,10 @@
 
 .panel-primary>.panel-heading {
     color: #fff;
-    background: linear-gradient(to right, #870000, #190a05)! important;
-	border-color: #190a05! important;
+    /*background: linear-gradient(to right, #870000, #190a05)! important;
+    border-color: #190a05! important;*/
+    background: #870000! important;
+    border-color: #000! important;
 }
 
 .mytext{
@@ -115,18 +117,17 @@
 }
 .msj-rta{
     float:right;
-    /*background:whitesmoke;
-    background:	#A52A2A;*/
-    background: #fff;
+    background:whitesmoke;
+    /*background:#A52A2A;
+    background: #fff;*/
 }
 .msj{
     float:left;
     background:#870000;
 }
 .frame{
-    /* background:#2c3e5014; */
-    /*background: linear-gradient(to right, #485563, #29323c);*/
-    background: linear-gradient(to right, #232526, #414345);
+    /*background: linear-gradient(to right, #232526, #414345);*/
+    background: #232526;
     height: 95%;
     min-width:100%;
     margin:0;
