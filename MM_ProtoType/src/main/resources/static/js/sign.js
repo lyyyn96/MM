@@ -585,12 +585,8 @@ $(document).on("click",'#sendPhoneNumberRetry',function() {
 				control ='<label for="floatingPhone">Phone</label>'
 					+'<div id="phone-box">'
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-<<<<<<< HEAD
 					+'&nbsp;'+'&nbsp;'
 					+'<input type="button" id="sendPhoneNumber" class=btn btn-outline-light" value="인증번호 발송">'
-=======
-					+'&nbsp;&nbsp;<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">'
->>>>>>> 3acdd550ed464e399415c6eddfb3f69b8f05ad73
 					+'</div>';
 				$('.phone-box').html(control);
 				
