@@ -504,7 +504,7 @@ $(document).ready(function() {
 					control ='<label for="floatingPhone">Phone</label>'
 						+'<div id="phone-box">'
 						+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-						+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
+						+'&nbsp;&nbsp;<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
 						+'</div>';
 					$('.phone-box').html(control);
 				}
@@ -585,8 +585,12 @@ $(document).on("click",'#sendPhoneNumberRetry',function() {
 				control ='<label for="floatingPhone">Phone</label>'
 					+'<div id="phone-box">'
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
+<<<<<<< HEAD
 					+'&nbsp;'+'&nbsp;'
 					+'<input type="button" id="sendPhoneNumber" class=btn btn-outline-light" value="인증번호 발송">'
+=======
+					+'&nbsp;&nbsp;<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">'
+>>>>>>> 3acdd550ed464e399415c6eddfb3f69b8f05ad73
 					+'</div>';
 				$('.phone-box').html(control);
 				
@@ -724,7 +728,7 @@ $(document).ready(function() {
 						   	 			+'<br>'
 										+'<label for="floatingPassword">Password</label>'
 						   	 			+'<div id="phone-box">'
-						   	 			+'<input type="password" class="form-control" id="floatingPassword" placeholder="Password" required/>'
+						   	 			+'<input type="password" class="form-control" id="floatingPassword" placeholder="변경할 Password" required/>'
 						   	 			+'&nbsp;'+'&nbsp;'
 						   	 			+'<input type="button" id="changePWBtn" class="btn btn-dark" value="확인" >'
 						   	 			+'</div>'
